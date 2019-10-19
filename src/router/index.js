@@ -3,7 +3,10 @@ import VueRouter from 'vue-router'
 
 import routes from './routes'
 import VueSocketio from 'vue-socket.io'
-Vue.use(VueSocketio,'https://127.0.0.1:5101')
+Vue.use(new VueSocketio({
+  debug:true,
+  connection:'http://127.0.0.1:5101'
+}))
 Vue.use(VueRouter)
 
 /*
