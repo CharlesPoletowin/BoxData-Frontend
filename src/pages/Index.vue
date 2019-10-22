@@ -5,15 +5,20 @@
     <div class='charts gl'>
       <plainData />
     </div>
-    <div class="charts location">
+    <div>
+      <realtime />
+    </div>
+    <!-- <div class="charts locationX">
       1234
     </div>
+    <div class="charts locationY">
+      5678
+    </div> -->
     <div class="charts speed">
       <!-- <scrollData /> -->
       <testEcharts />
     </div>
     <div class="charts gauge">
-      <websocket />
     </div>
     <div class="charts vibrate">
     </div>
@@ -33,7 +38,7 @@
 import plainData from 'src/components/PlainData.vue'
 // import scrollData from 'src/components/ScrollData.vue'
 import testEcharts from 'src/components/testEcharts.vue'
-import websocket from 'src/components/websocket.vue'
+import realtime from 'src/components/realtime/RealTime.vue'
 export default {
   name: 'PageIndex',
   components: {
@@ -41,7 +46,7 @@ export default {
     plainData,
     // scrollData
     testEcharts,
-    websocket
+    realtime
 
   },
   computed: {
@@ -83,11 +88,16 @@ widthMore = 8%;
   left: 10%;
 }
 
-.location {
-  left: initialLeft;
-  top: initialTop;
+.locationX {
+  left: 1%;
+  top: 3%;
+  width: 10%;
 }
-
+.locationY {
+  left: 1%;
+  top: 19%;
+  width: 10%;
+}
 .speed {
   left: initialLeft + chartWidth + interval;
   top: initialTop;
