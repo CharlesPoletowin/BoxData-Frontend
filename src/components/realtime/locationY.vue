@@ -69,7 +69,7 @@ export default {
           axisLine: { // 坐标轴轴线相关设置。数学上的x轴
             show: true,
             lineStyle: {
-              color: '#f0f',
+              color: '#FF6357',
               width: 0.5
             }
           },
@@ -101,7 +101,7 @@ export default {
           axisLine: {
             show: true,
             lineStyle: {
-              color: '#f0f',
+              color: '#E9967A',
               width: 0.5
             }
           },
@@ -117,18 +117,18 @@ export default {
           }
         }],
         series: [{
-          name: '注册总量',
+          name: 'locationy',
           type: 'line',
           // smooth: true, //是否平滑曲线显示
           // symbol:'circle',  // 默认是空心圆（中间是白色的），改成实心圆
-          showAllSymbol: true,
+          showAllSymbol: false,
           // symbol: 'image://./static/images/guang-circle.png',
           symbolSize: 6,
           lineStyle: {
             normal: {
-              color: '#f0f' // 线条颜色
+              color: '#E9967A' // 线条颜色
             },
-            borderColor: '#f0f'
+            borderColor: '#E9967A'
           },
           label: {
             show: false,

@@ -127,7 +127,7 @@ export default {
           type: 'line',
           // smooth: true, //是否平滑曲线显示
           // symbol:'circle',  // 默认是空心圆（中间是白色的），改成实心圆
-          showAllSymbol: true,
+          showAllSymbol: false,
           // symbol: 'image://./static/images/guang-circle.png',
           symbolSize: 6,
           lineStyle: {

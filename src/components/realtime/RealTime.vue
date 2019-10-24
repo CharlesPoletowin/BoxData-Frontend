@@ -16,6 +16,18 @@
       <div class="charts speed">
         <speed :list="speed"></speed>
       </div>
+      <div class="charts vibrationX">
+        <vibrationX :list="vibrationX" ></vibrationX>
+      </div>
+      <div class="charts vibrationY">
+        <vibrationY :list="vibrationY"></vibrationY>
+      </div>
+      <div class="charts current">
+        <current :list="current"></current>
+      </div>
+      <div class="charts voltage">
+        <current :list="voltage"></current>
+      </div>
     </div>
 </template>
 
@@ -24,12 +36,18 @@ import locationX from 'src/components/realtime/locationX.vue'
 import locationY from './locationY'
 import trail from './Trail'
 import speed from './Speed'
+import vibrationX from './VibrationX'
+import vibrationY from './VibrationY'
+import current from './Current'
 export default {
   components: {
+    vibrationY,
+    vibrationX,
     locationX,
     locationY,
     trail,
-    speed
+    speed,
+    current
   },
   data () {
     return {
@@ -37,7 +55,11 @@ export default {
       listY: [1, 2, 3, 4, 5, 6, 7, 8, 9],
       trail: [[1, 1, 1], [2, 0, 2], [3, -1, 3], [2, -2, 4], [1, -3, 5]],
       trailAbnormal: [[1, 0, 1], [2, 0, 1]],
-      speed: [-1, -0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1.0, 0.75, 0.75, 0.25, -2, -2, 1, 1, 1, 1, 1, 1, 0, -2, -1, -1, -1]
+      speed: [-1, -1, -1, -1, 0, 1, 1, 1, 1.0, 1, 1, -1, -2, -2, -1, 1, 1, 1, 1, 1, 0, -2, -1, -1, -1],
+      vibrationX: [1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 2, -2, -2],
+      vibrationY: [1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 2, -2, -2],
+      current: [75],
+      voltage: [80]
     }
   },
   props: {
@@ -53,6 +75,9 @@ export default {
         this.listY = tem.value
       } else if (tem.monitor === 'trail') {
         this.trail = tem.value
+      } else if (tem.monitor === 'vibration') {
+        this.vibrationX = tem.value
+        this.vibrationY = tem.value
       }
     }
   }
@@ -60,7 +85,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-chartWidth = 12%;
+chartWidth = 13%;
 chartHeight = 15%;
 interval = 5%;
 initialLeft = 1%;
@@ -78,12 +103,12 @@ widthMore = 8%;
 .locationX {
   left: initialLeft;
   top: initialTop;
-  /*width: 12%;*/
+  width: 13.1%;
 }
 .locationY {
   left: initialLeft;
   top: initialTop+chartHeight;
-  /*width: 12%;*/
+  width: 13.1%;
 }
 .words{
     position:absolute;
@@ -113,7 +138,7 @@ widthMore = 8%;
   position:absolute;
   top:0;
   left:0;
-  color:#f0f;
+  color:#E9967A;
   font-size : 9px;
   font-weight: bold;
 }
@@ -121,12 +146,38 @@ widthMore = 8%;
   left:initialLeft+chartWidth;
   top:initialTop;
   height: 2*chartHeight;
-  width: 15%;
+  /*width: 15%;*/
+  z-index: 12;
 }
 .speed{
   left:initialLeft;
   top:initialTop+2*chartHeight;
-  width:27%;
+  width:2*chartWidth;
   height: 2*chartHeight;
 }
+.vibrationX{
+    left:initialLeft;
+    top: initialTop+4*chartHeight
+    height: 2*chartHeight;
+    width:chartWidth+0.1%;
+}
+.vibrationY{
+    left:initialLeft+chartWidth;
+    top: initialTop+4*chartHeight;
+    height: 2*chartHeight;
+    width:chartWidth;
+}
+.current{
+  left:initialLeft+2*chartWidth;
+  top:initialTop;
+  width:10%;
+  height:20%;
+  z-index: 11
+}
+  .voltage{
+    left:initialLeft++2*chartWidth+10%;
+    top:initialTop
+    width:10%;
+    height:20%
+  }
 </style>

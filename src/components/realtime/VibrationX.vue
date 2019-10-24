@@ -1,22 +1,22 @@
 <template>
-  <div :id='speed' style="height:100%;"></div>
+  <div :id='vibration' style="height:100%;"></div>
 </template>
 
 <script>
 export default {
-  name: 'Speed',
+  name: 'VibrationX',
   data () {
     return {
       myEcharts: {},
-      speed: Math.random().toString()
+      vibration: Math.random().toString()
     }
   },
   mounted () {
     this.drawLine()
   },
   methods: {
-    drawLine: function () {
-      let myChart = this.$echarts.init(document.getElementById(this.speed))
+    drawLine () {
+      let myChart = this.$echarts.init(document.getElementById(this.vibration))
       myChart.resize()
       window.addEventListener('resize', () => {
         myChart.resize()
@@ -25,27 +25,27 @@ export default {
       myChart.setOption({
         backgroundColor: 'rgba(14,32,74,1)',
         grid: {
-          top: '15%',
+          top: '20%',
           left: '5%',
-          right: '7%',
+          right: '13%',
           bottom: '7%'
         },
         title: {
-          text: '速度折线',
+          text: '振幅X,Y轴',
           textStyle: {
             color: '#FFC300',
             baseline: 'bottom',
             fontSize: 14
           },
-          left: 'center'
+          left: 'left'
         },
         tooltip: {
           trigger: 'axis'
         },
         xAxis: {
           min: 1,
-          max: 30,
-          data: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          max: 15,
+          data: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
           // type: 'value',
           axisLine: {
             onZero: false,
@@ -78,9 +78,9 @@ export default {
           splitLine: {
             show: false
           },
-          min: -3,
-          max: 3,
-          data: [-3, -2, -1, 0, 1, 2],
+          min: -2,
+          max: 2,
+          data: [-2, -1, 0, 1, 2],
           axisLine: {
             onZero: false,
             lineStyle: {
@@ -92,14 +92,15 @@ export default {
             show: false
           },
           axisLabel: {
+            show: false,
             margin: 2,
             color: '#d1e6eb',
             interval: 'auto',
             fontWeight: 'lighter',
             fontSize: 10
           },
-          name: '速度',
-          nameGap: 5,
+          name: 'X',
+          nameGap: 0,
           nameTextStyle: {
             color: '#d1e6eb',
             fontWeight: 'bold',
@@ -127,33 +128,24 @@ export default {
           top: 10,
           right: 10,
           pieces: [
-            { gt: -1.2,
-              lte: -0.8,
-              color: '#53fdfe'
-            },
-            { gt: 0.8,
-              lte: 1.2,
-              color: '#53fdfe'
-            },
-            // {
-            //   gt: -1,
-            //   lte: -0.5,
-            //   color: '#096'
+            // { gt: -2,
+            //   lte: -1,
+            //   color: '#53fdfe'
             // },
             {
-              gt: -0.8,
-              lte: 0.8,
+              gt: -3,
+              lt: -1,
+              color: '#cc0033'
+            }, {
+              gte: -1,
+              lte: 1,
               color: '#ffde33'
+            },
+            {
+              gt: 1,
+              lte: 3,
+              color: '#cc0033'
             }
-            // {
-            //   gt: 0,
-            //   lte: 0.50,
-            //   color: '#ff9933'
-            // }, {
-            //   gt: 0.5,
-            //   lte: 1,
-            //   color: '#cc0033'
-            // },
             // {
             //   gt: 1,
             //   lte: 2,
@@ -165,25 +157,17 @@ export default {
             // }
           ],
           outOfRange: {
-            color: '#cc0033'
+            color: '#FFFFFF'
           }
         },
         series: {
-          name: 'Speed',
+          name: 'VibrationX',
           type: 'line',
           data: that.list,
-          showAllSymbol: false,
-          showSymbol: false,
           markLine: {
             symbol: 'none',
             silent: true,
-            label: {
-              show: false
-            },
             data: [
-              {
-                yAxis: -2
-              },
               {
                 yAxis: -1
               },
@@ -192,14 +176,14 @@ export default {
               },
               {
                 yAxis: 1
-              },
-              {
-                yAxis: 2
               }
             ],
             lineStyle: {
               type: 'dotted',
               color: 'rgba(220,220,220,1)'
+            },
+            label: {
+              show: false
             }
           }
         }
