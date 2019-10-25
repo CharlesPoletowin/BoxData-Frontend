@@ -28,17 +28,25 @@
       <div class="charts voltage">
         <current :list="voltage"></current>
       </div>
+      <div class="charts temperature">
+        <temperature :list="temperature"></temperature>
+      </div>
+      <div class="charts humidity">
+        <humidity :list="humidity"></humidity>
+      </div>
     </div>
 </template>
 
 <script>
-import locationX from 'src/components/realtime/locationX.vue'
-import locationY from './locationY'
+import locationX from 'src/components/realtime/LocationX.vue'
+import locationY from './LocationY'
 import trail from './Trail'
 import speed from './Speed'
 import vibrationX from './VibrationX'
 import vibrationY from './VibrationY'
 import current from './Current'
+import temperature from './Temperature'
+import humidity from './Humidity'
 export default {
   components: {
     vibrationY,
@@ -47,7 +55,9 @@ export default {
     locationY,
     trail,
     speed,
-    current
+    current,
+    temperature,
+    humidity
   },
   data () {
     return {
@@ -59,7 +69,9 @@ export default {
       vibrationX: [1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 2, -2, -2],
       vibrationY: [1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 2, -2, -2],
       current: [75],
-      voltage: [80]
+      voltage: [80],
+      temperature: [25],
+      humidity: [45]
     }
   },
   props: {
@@ -169,15 +181,25 @@ widthMore = 8%;
 }
 .current{
   left:initialLeft+2*chartWidth;
-  top:initialTop;
+  top:initialTop+2%;
   width:10%;
   height:20%;
   z-index: 11
 }
-  .voltage{
-    left:initialLeft++2*chartWidth+10%;
-    top:initialTop
-    width:10%;
+.voltage{
+  left:initialLeft++2*chartWidth+10%;
+  top:initialTop+2%
+  width:10%;
+  height:20%
+}
+  .temperature{
+    left:initialLeft++2*chartWidth+20%;
+    top:initialTop+2%
+    height:20%
+  }
+  .humidity{
+    left:initialLeft++3*chartWidth+19.9%;
+    top:initialTop+2%
     height:20%
   }
 </style>

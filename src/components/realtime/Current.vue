@@ -123,6 +123,11 @@ export default {
                   ]
                 }
               },
+              title: {
+                offsetCenter: [0, '-160%'],
+                color: '#FFFFFF',
+                fontSize: 12
+              },
               axisTick: {
                 show: 0
               },
@@ -146,7 +151,7 @@ export default {
                 }
               },
               data: [{
-                value: that.list
+                value: that.list, name: '电流'
               }],
               z: 9
             },
