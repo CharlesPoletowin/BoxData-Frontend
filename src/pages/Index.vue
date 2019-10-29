@@ -1,6 +1,7 @@
 <template>
   <q-page class="flex flex-center">
     <div class='glSimulator'>
+      <h53d></h53d>
     </div>
 <!--    <div class='charts gl'>-->
 <!--      <plainData />-->
@@ -43,6 +44,7 @@
 // import testEcharts from 'src/components/testEcharts.vue'
 import realtime from 'src/components/realtime/RealTime.vue'
 import statistics from 'src/components/statistics/Statistics'
+import h53d from '../components/h53d'
 export default {
   name: 'PageIndex',
   components: {
@@ -51,7 +53,9 @@ export default {
     // scrollData
     // testEcharts,
     realtime,
-    statistics
+    statistics,
+    h53d
+    // h53D
   },
   computed: {
   },

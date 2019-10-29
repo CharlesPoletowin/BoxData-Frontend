@@ -3,15 +3,30 @@
   <div class="charts RelatedColor">
     <RelatedColor></RelatedColor>
   </div>
+  <div class="charts Abnormal">
+    <AbnormalTable></AbnormalTable>
+  </div>
+  <div class="charts River">
+    <River></River>
+  </div>
+  <div class="charts Prediction">
+    <PredictAge></PredictAge>
+  </div>
 </div>
 </template>
 
 <script>
 import RelatedColor from './RelatedColor'
+import AbnormalTable from './AbnormalTable'
+import River from './River'
+import PredictAge from './PredictAge'
 export default {
   name: 'Statistics',
   components: {
-    RelatedColor
+    RelatedColor,
+    AbnormalTable,
+    River,
+    PredictAge
   }
 }
 </script>
@@ -36,4 +51,22 @@ export default {
   height: 2*chartHeight;
   width: 2*chartWidth;
 }
+  .Abnormal{
+    left:initialLeft+4*chartWidth;
+    top: initialTop+4*chartHeight;
+    height: 2*chartHeight;
+    width: 1.5*chartWidth;
+  }
+  .River{
+    left:initialLeft+5.5*chartWidth;
+    top: initialTop+4*chartHeight;
+    height: 2*chartHeight;
+    width: 2*chartWidth;
+  }
+  .Prediction{
+    left:initialLeft+5.5*chartWidth;
+    top:initialTop+2*chartHeight;
+    height: 2*chartHeight;
+    width: 2*chartWidth;
+  }
 </style>
