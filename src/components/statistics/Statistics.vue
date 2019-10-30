@@ -12,6 +12,9 @@
   <div class="charts Prediction">
     <PredictAge></PredictAge>
   </div>
+  <div class="charts HealthRadar">
+    <HealthRadar></HealthRadar>
+  </div>
 </div>
 </template>
 
@@ -20,13 +23,15 @@ import RelatedColor from './RelatedColor'
 import AbnormalTable from './AbnormalTable'
 import River from './River'
 import PredictAge from './PredictAge'
+import HealthRadar from './HealthRadar'
 export default {
   name: 'Statistics',
   components: {
     RelatedColor,
     AbnormalTable,
     River,
-    PredictAge
+    PredictAge,
+    HealthRadar
   }
 }
 </script>
@@ -66,6 +71,12 @@ export default {
   .Prediction{
     left:initialLeft+5.5*chartWidth;
     top:initialTop+2*chartHeight;
+    height: 2*chartHeight;
+    width: 2*chartWidth;
+  }
+  .HealthRadar{
+    left:initialLeft+5.5*chartWidth;
+    top:initialTop;
     height: 2*chartHeight;
     width: 2*chartWidth;
   }

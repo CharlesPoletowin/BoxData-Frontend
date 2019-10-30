@@ -69,7 +69,7 @@ export default {
           axisLine: { // 坐标轴轴线相关设置。数学上的x轴
             show: true,
             lineStyle: {
-              color: '#FF6357',
+              color: '#ffdc4a',
               width: 0.5
             }
           },
@@ -101,7 +101,7 @@ export default {
           axisLine: {
             show: true,
             lineStyle: {
-              color: '#E9967A',
+              color: '#ffdc4a',
               width: 0.5
             }
           },
@@ -126,9 +126,8 @@ export default {
           symbolSize: 6,
           lineStyle: {
             normal: {
-              color: '#E9967A' // 线条颜色
-            },
-            borderColor: '#E9967A'
+              color: '#ffdc4a' // 线条颜色
+            }
           },
           label: {
             show: false,
@@ -150,11 +149,11 @@ export default {
               // 线性渐变，前4个参数分别是x0,y0,x2,y2(范围0~1);相当于图形包围盒中的百分比。如果最后一个参数是‘true’，则该四个值是绝对像素位置。
               color: new that.$echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                 offset: 0,
-                color: 'rgba(0,150,239,0.3)'
+                color: '#ffdc4a'
               },
               {
                 offset: 1,
-                color: 'rgba(0,253,252,0)'
+                color: '#010921'
               }
               ], false),
               shadowColor: 'rgba(53,142,215, 0.9)', // 阴影颜色

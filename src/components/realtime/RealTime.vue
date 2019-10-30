@@ -26,7 +26,7 @@
         <current :list="current"></current>
       </div>
       <div class="charts voltage">
-        <current :list="voltage"></current>
+        <voltage :list="voltage"></voltage>
       </div>
       <div class="charts temperature">
         <temperature :list="temperature"></temperature>
@@ -47,6 +47,8 @@ import vibrationY from './VibrationY'
 import current from './Current'
 import temperature from './Temperature'
 import humidity from './Humidity'
+import voltage from './Voltage'
+
 export default {
   components: {
     vibrationY,
@@ -57,7 +59,8 @@ export default {
     speed,
     current,
     temperature,
-    humidity
+    humidity,
+    voltage
   },
   data () {
     return {
@@ -108,7 +111,6 @@ widthMore = 8%;
   padding: 0;
   height: chartHeight;
   width: chartWidth;
-  background: rgba(0, 200, 200, 0.8);
   position: absolute;
 }
 
@@ -150,7 +152,7 @@ widthMore = 8%;
   position:absolute;
   top:0;
   left:0;
-  color:#E9967A;
+  color:#ffdc4a;
   font-size : 9px;
   font-weight: bold;
 }

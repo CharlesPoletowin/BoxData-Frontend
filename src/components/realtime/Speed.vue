@@ -33,7 +33,7 @@ export default {
         title: {
           text: '速度折线',
           textStyle: {
-            color: '#FFC300',
+            color: '#FFFAC0',
             baseline: 'bottom',
             fontSize: 14
           },

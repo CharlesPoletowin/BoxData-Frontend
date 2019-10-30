@@ -7,7 +7,7 @@
       <button onclick="Add()">Add</button>
       <button onclick="Change()">Change</button>
       <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
-      <div class="title">demo</div>
+      <div class="title">demo {{xlocation}}</div>
     </div>
   </div>
 </div>
@@ -19,8 +19,26 @@ export default {
   name: 'h53d',
   mounted () {
     var unityInstance = UnityLoader.instantiate('unityContainer', 'statics/Build/h5.json', { onProgress: UnityProgress })
-    function Add () { unityInstance.SendMessage('MyUnity', 'Add', '') }
-    function Change () { unityInstance.SendMessage('MyUnity', 'Change', '') }
+    this.$store.commit('sendmessage/xlocate')
+  },
+  methods: {
+    Add () { unityInstance.SendMessage('MyUnity', 'Add', '') },
+    Change () { unityInstance.SendMessage('MyUnity', 'Change', '') }
+  },
+  computed: {
+    xlocation () {
+      return this.$store.state.sendmessage.XLocation
+    }
+  },
+  watch: {
+    xlocation: {
+      handler (newval, oldval) {
+        if (newval === 1) {
+          this.Add()
+          this.$store.commit('sendmessage/xrecover')
+        }
+      }
+    }
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <div :id="current" style="height:100%;width: 100%"></div>
+  <div :id="current" style="height:100%;width: 100%"></div>
 </template>
 
 <script>
@@ -23,7 +23,7 @@ export default {
       })
       let that = this
       myChart.setOption({
-        backgroundColor: '#222939',
+        backgroundColor: '#0E204A',
         series:
         // 外围刻度
           [
@@ -112,11 +112,15 @@ export default {
                       1,
                       new that.$echarts.graphic.LinearGradient(0, 0, 1, 0, [{
                         offset: 0,
-                        color: 'rgba(1,192,229,0.4)'
+                        color: '#0032af'
+                      },
+                      {
+                        offset: 0.5,
+                        color: '#ffdc4a'
                       },
                       {
                         offset: 1,
-                        color: 'rgba(204,62,22,0.4)'
+                        color: '#f64e01'
                       }
                       ])
                     ]
@@ -125,7 +129,7 @@ export default {
               },
               title: {
                 offsetCenter: [0, '-160%'],
-                color: '#FFFFFF',
+                color: '#FFFAC0',
                 fontSize: 12
               },
               axisTick: {
@@ -147,7 +151,7 @@ export default {
               },
               itemStyle: {
                 normal: {
-                  color: '#fff'
+                  color: '#FFF'
                 }
               },
               data: [{
@@ -169,18 +173,22 @@ export default {
               axisLine: {
                 show: true,
                 lineStyle: {
-                  width: 1,
+                  width: 3,
                   shadowBlur: 0,
                   color: [
                     [
                       1,
                       new that.$echarts.graphic.LinearGradient(0, 0, 1, 0, [{
                         offset: 0,
-                        color: 'rgb(1,192,229)'
+                        color: '#0032af'
+                      },
+                      {
+                        offset: 0.5,
+                        color: '#ffdc4a'
                       },
                       {
                         offset: 1,
-                        color: 'rgb(204,62,22)'
+                        color: '#f64e01'
                       }
                       ])
                     ]

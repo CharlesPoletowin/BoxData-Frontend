@@ -34,7 +34,7 @@ export default {
         title: {
           text: '位置轨迹图',
           textStyle: {
-            color: '#FFC300',
+            color: '#FFFAC0',
             baseline: 'bottom',
             fontSize: 12
           },
