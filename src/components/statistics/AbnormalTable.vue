@@ -1,5 +1,5 @@
 <template>
-<div style="text-align: center;background-color: #0E204A">
+<div style="text-align: center;">
   <div class="text">异常情况统计</div>
   <table class="Abnormal">
     <tr>
@@ -56,7 +56,6 @@ export default {
     width: 90%;
     height: 100%;
     border: 1px solid white;
-    background-color: #0E204A;
     color: white;
     font-size: 10px;
   }

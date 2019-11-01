@@ -14,7 +14,6 @@ export default {
   mounted () {
     this.drawline()
   },
-  props: ['list', 'is-normal'],
   methods: {
     drawline () {
       let myChart = this.$echarts.init(document.getElementById(this.locationY))
@@ -26,7 +25,7 @@ export default {
       myChart.setOption({
         title: {
         },
-        backgroundColor: '#0E204A',
+        backgroundColor: '',
         tooltip: {
           trigger: 'axis',
           axisPointer: {
@@ -64,7 +63,7 @@ export default {
           name: '时间',
           nameLocation: 'end',
           show: true,
-          type: 'category',
+          type: 'value',
           boundaryGap: true,
           axisLine: { // 坐标轴轴线相关设置。数学上的x轴
             show: true,
@@ -74,12 +73,16 @@ export default {
             }
           },
           axisLabel: { // 坐标轴刻度标签的相关设置
+            show: false,
             textStyle: {
               color: '#ffffff',
               margin: 15
             }
           },
           axisTick: {
+            show: false
+          },
+          splitLine: {
             show: false
           }
           // data: ['2014', '2015', '2016', '2017', '2018', '2019']
@@ -116,53 +119,71 @@ export default {
             show: false
           }
         }],
-        series: [{
-          name: 'locationy',
-          type: 'line',
-          // smooth: true, //是否平滑曲线显示
-          // symbol:'circle',  // 默认是空心圆（中间是白色的），改成实心圆
-          showAllSymbol: false,
-          // symbol: 'image://./static/images/guang-circle.png',
-          symbolSize: 6,
-          lineStyle: {
-            normal: {
-              color: '#ffdc4a' // 线条颜色
-            }
-          },
-          label: {
-            show: false,
-            position: 'top',
-            textStyle: {
-              color: '#fff'
-            }
-          },
-          itemStyle: {
-            normal: {
-              color: 'rgba(255,255,255,1)'
-            }
-          },
-          tooltip: {
-            show: false
-          },
-          areaStyle: { // 区域填充样式
-            normal: {
-              // 线性渐变，前4个参数分别是x0,y0,x2,y2(范围0~1);相当于图形包围盒中的百分比。如果最后一个参数是‘true’，则该四个值是绝对像素位置。
-              color: new that.$echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                offset: 0,
-                color: '#ffdc4a'
-              },
-              {
-                offset: 1,
-                color: '#010921'
+        series: [
+          {
+            name: 'locationy',
+            type: 'line',
+            showAllSymbol: false,
+            symbolSize: 1,
+            lineStyle: {
+              normal: {
+                color: '#ffdc4a' // 线条颜色
               }
-              ], false),
-              shadowColor: 'rgba(53,142,215, 0.9)', // 阴影颜色
-              shadowBlur: 20 // shadowBlur设图形阴影的模糊大小。配合shadowColor,shadowOffsetX/Y, 设置图形的阴影效果。
-            }
+            },
+            label: {
+              show: false,
+              position: 'top',
+              textStyle: {
+                color: '#fff'
+              }
+            },
+            itemStyle: {
+              normal: {
+                color: 'rgba(255,255,255,1)'
+              }
+            },
+            tooltip: {
+              show: false
+            },
+            areaStyle: { // 区域填充样式
+              normal: {
+              // 线性渐变，前4个参数分别是x0,y0,x2,y2(范围0~1);相当于图形包围盒中的百分比。如果最后一个参数是‘true’，则该四个值是绝对像素位置。
+                color: new that.$echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                  offset: 0,
+                  color: '#ffdc4a'
+                },
+                {
+                  offset: 1,
+                  color: '#010921'
+                }
+                ], false),
+                shadowColor: 'rgba(53,142,215, 0.9)', // 阴影颜色
+                shadowBlur: 20 // shadowBlur设图形阴影的模糊大小。配合shadowColor,shadowOffsetX/Y, 设置图形的阴影效果。
+              }
+            },
+            data: that.list
           },
-          // data: [15, 20, 25, 36, 70, 90, 37, 40, 50, 45, 45]
-          data: that.list
-        }]
+          {
+            name: 'ablocationy',
+            type: 'line',
+            showAllSymbol: false,
+            symbolSize: 4,
+            lineStyle: {
+              normal: {
+                color: '#f64e01' // 线条颜色
+              }
+            },
+            itemStyle: {
+              normal: {
+                color: 'rgba(255,255,255,1)'
+              }
+            },
+            tooltip: {
+              show: false
+            },
+            data: that.listb
+          }
+        ]
       })
       this.myEcharts = myChart
     }
@@ -173,6 +194,30 @@ export default {
         this.drawline()
       },
       deep: true
+    },
+    listb: {
+      handler: function (val, oldVal) {
+        this.drawline()
+        if (val.length) {
+          this.$store.commit('sendmessage/ylocate')
+        }
+      },
+      deep: true
+    }
+
+  },
+  props: {
+    list: {
+      type: Array,
+      default () {
+        return []
+      }
+    },
+    listb: {
+      type: Array,
+      default () {
+        return []
+      }
     }
   }
 }

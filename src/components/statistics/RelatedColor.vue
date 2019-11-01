@@ -23,7 +23,7 @@ export default {
       })
       let that = this
       myChart.setOption({
-        backgroundColor: '#0E204A',
+        backgroundColor: '',
         title: {
           text: '关联色彩盘',
           left: 'center',

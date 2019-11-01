@@ -23,7 +23,7 @@ export default {
       })
       let that = this
       myChart.setOption({
-        backgroundColor: 'rgba(14,32,74,1)',
+        backgroundColor: '',
         grid: {
           top: '15%',
           left: '5%',

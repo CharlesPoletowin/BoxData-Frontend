@@ -23,14 +23,7 @@ export default {
       })
       let that = this
       myChart.setOption({
-        backgroundColor: '#0E204A',
-        // backgroundColor: new that.$echarts.graphic.RadialGradient(0.3, 0.3, 0.8, [{
-        //   offset: 0,
-        //   color: '#000000'
-        // }, {
-        //   offset: 1,
-        //   color: '#0E204A'
-        // }]),
+        backgroundColor: '',
         title: {
           text: '位置轨迹图',
           textStyle: {

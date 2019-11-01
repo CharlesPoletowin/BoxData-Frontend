@@ -47,7 +47,6 @@ export default {
     padding: 0;
     height: chartHeight;
     width: chartWidth;
-    background: rgba(0, 200, 200, 0.8);
     position: absolute;
   }
 .RelatedColor{

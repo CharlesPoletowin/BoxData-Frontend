@@ -1,12 +1,12 @@
 <template>
     <div>
       <div class="charts locationX">
-        <locationX :list="listX" />
+        <locationX :list="listX" :listb="AblistX"/>
         <div class="words">时间</div>
         <div class="words2">X</div>
       </div>
       <div class="charts locationY">
-        <locationY :list="listY"/>
+        <locationY :list="listY" :listb="Ablisty"/>
         <div class="words3">时间</div>
         <div class="words4">Y</div>
       </div>
@@ -17,10 +17,10 @@
         <speed :list="speed"></speed>
       </div>
       <div class="charts vibrationX">
-        <vibrationX :list="vibrationX" ></vibrationX>
+        <vibrationX :list="vibrationX" :listb="AbvibrationX"></vibrationX>
       </div>
       <div class="charts vibrationY">
-        <vibrationY :list="vibrationY"></vibrationY>
+        <vibrationY :list="vibrationY" :listb="AbvibrationY"></vibrationY>
       </div>
       <div class="charts current">
         <current :list="current"></current>
@@ -29,10 +29,10 @@
         <voltage :list="voltage"></voltage>
       </div>
       <div class="charts temperature">
-        <temperature :list="temperature"></temperature>
+        <temperature :list="temperature" :listb="abtemperature"></temperature>
       </div>
       <div class="charts humidity">
-        <humidity :list="humidity"></humidity>
+        <humidity :list="humidity" :listb="abhumidity"></humidity>
       </div>
     </div>
 </template>
@@ -64,17 +64,23 @@ export default {
   },
   data () {
     return {
-      listX: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-      listY: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+      listX: [[1, 1], [2, 2], [3, 1], [4, 0], [5, 1], [6, 2]],
+      AblistX: [],
+      listY: [[1, 1], [2, 2], [3, 1], [4, 0], [5, 1], [6, 2]],
+      Ablisty: [],
       trail: [[1, 1, 1], [2, 0, 2], [3, -1, 3], [2, -2, 4], [1, -3, 5]],
       trailAbnormal: [[1, 0, 1], [2, 0, 1]],
       speed: [-1, -1, -1, -1, 0, 1, 1, 1, 1.0, 1, 1, -1, -2, -2, -1, 1, 1, 1, 1, 1, 0, -2, -1, -1, -1],
       vibrationX: [1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 2, -2, -2],
+      AbvibrationX: [],
       vibrationY: [1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 2, -2, -2],
+      AbvibrationY: [],
       current: [75],
       voltage: [80],
       temperature: [25],
-      humidity: [45]
+      abtemperature: [],
+      humidity: [45],
+      abhumidity: []
     }
   },
   props: {
@@ -84,16 +90,18 @@ export default {
   sockets: {
     message: function (val) {
       let tem = JSON.parse(val)
-      if (tem.monitor === 'locationx') {
-        this.listX = tem.value
-      } else if (tem.monitor === 'locationy') {
-        this.listY = tem.value
-      } else if (tem.monitor === 'trail') {
-        this.trail = tem.value
-      } else if (tem.monitor === 'vibration') {
-        this.vibrationX = tem.value
-        this.vibrationY = tem.value
-      }
+      this.temperature = tem.temperature[0][0]
+      this.abtemperature = tem.temperature[1][0]
+      this.humidity = tem.humidity[0][0]
+      this.abhumidity = tem.humidity[1][0]
+      this.listX = tem.locationx[0]
+      this.AblistX = tem.locationx[1]
+      this.listY = tem.locationy[0]
+      this.Ablisty = tem.locationy[1]
+      this.vibrationX = tem.vibration[0]
+      this.AbvibrationX = tem.vibration[1]
+      this.vibrationY = tem.vibration[0]
+      this.AbvibrationY = tem.vibration[1]
     }
   }
 }

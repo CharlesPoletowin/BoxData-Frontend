@@ -51,7 +51,7 @@ export default {
       ]
       var legendData = ['车辆数', '设计车位']
       myChart.setOption({
-        backgroundColor: '#0E204A',
+        backgroundColor: '',
         title: {
           text: '健康状况',
           textStyle: {

@@ -24,7 +24,7 @@ export default {
       })
       let that = this
       myChart.setOption({
-        backgroundColor: '#0E204A',
+        backgroundColor: '',
         title: {
           text: '预测寿命',
           textStyle: {

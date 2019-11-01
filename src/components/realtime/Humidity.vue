@@ -23,11 +23,11 @@ export default {
       })
       let that = this
       myChart.setOption({
-        backgroundColor: '#0E204A',
+        backgroundColor: '',
         title: {
           text: '湿度',
           textStyle: {
-            color: '#FFC300',
+            color: '#fffac0',
             baseline: 'bottom',
             fontSize: 12
           },
@@ -37,7 +37,7 @@ export default {
           left: 0,
           top: '20%',
           bottom: '5%',
-          right: 0
+          right: '50%'
         },
         tooltip: {
           show: false,
@@ -95,7 +95,7 @@ export default {
 
             itemStyle: {
               color: 'rgba(0,0,0,0)',
-              borderColor: 'rgba(255,99,71)',
+              borderColor: '#ffdc4a',
               borderWidth: 1,
               barBorderRadius: [4, 4, 4, 4]
             },
@@ -112,7 +112,7 @@ export default {
 
               show: true,
               position: 'right',
-              color: 'rgba(255,99,71)',
+              color: '#ffdc4a',
               fontWeight: 'bold',
               fontSize: 18,
               formatter: function (o) {
@@ -127,11 +127,45 @@ export default {
                   colorStops: [
                     {
                       offset: 0,
-                      color: 'rgba(255,99,71,0.2)'
+                      color: 'rgba(255,220,74,0.2)'
                     },
                     {
+                      offset: 1,
+                      color: 'rgba(255,220,74,0.9)'
+                    }
+                  ]
+                }
+              }
+            }]
+          },
+          {
+            name: ' ',
+            type: 'bar',
+            barWidth: 18,
+            label: {
+
+              show: true,
+              position: 'right',
+              color: 'rgba(246,78,1)',
+              fontWeight: 'bold',
+              fontSize: 14,
+              formatter: function (o) {
+                return o.value + '%异常!'
+              }
+
+            },
+            data: [{
+              value: that.listb[0],
+              itemStyle: {
+                color: {
+                  colorStops: [
+                    {
                       offset: 0,
-                      color: 'rgba(255,99,71,0.9)'
+                      color: 'rgba(246,78,1,0.4)'
+                    },
+                    {
+                      offset: 1,
+                      color: 'rgba(246,78,1,0.4)'
                     }
                   ]
                 }
@@ -149,9 +183,28 @@ export default {
         this.drawLine()
       },
       deep: true
+    },
+    listb: {
+      handler: function (val, oldVal) {
+        this.drawLine()
+      },
+      deep: true
     }
   },
-  props: ['list']
+  props: {
+    list: {
+      type: Array,
+      default () {
+        return []
+      }
+    },
+    listb: {
+      type: Array,
+      default () {
+        return []
+      }
+    }
+  }
 }
 </script>
 

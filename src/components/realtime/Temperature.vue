@@ -23,11 +23,11 @@ export default {
       })
       let that = this
       myChart.setOption({
-        backgroundColor: '#0E204A',
+        backgroundColor: '',
         title: {
           text: '温度',
           textStyle: {
-            color: '#FFC300',
+            color: '#fffac0',
             baseline: 'bottom',
             fontSize: 12
           },
@@ -37,7 +37,7 @@ export default {
           left: 0,
           top: '20%',
           bottom: '5%',
-          right: 0
+          right: '50%'
         },
         tooltip: {
           show: false,
@@ -130,12 +130,47 @@ export default {
                       color: 'rgba(93,253,254,0.2)'
                     },
                     {
-                      offset: 0,
+                      offset: 1,
                       color: 'rgba(93,253,254,0.8)'
                     }
                   ]
                 }
               }
+            }]
+          },
+          {
+            name: 'abnormal',
+            type: 'bar',
+            barWidth: 18,
+            label: {
+
+              show: true,
+              position: 'right',
+              color: 'rgba(246,78,1)',
+              fontWeight: 'bold',
+              fontSize: 14,
+              formatter: function (o) {
+                return o.value + '℃异常!'
+              }
+
+            },
+            data: [{
+              value: that.listb[0],
+              itemStyle: {
+                color: {
+                  colorStops: [
+                    {
+                      offset: 0,
+                      color: 'rgba(246,78,1,0.4)'
+                    },
+                    {
+                      offset: 1,
+                      color: 'rgba(246,78,1,0.8)'
+                    }
+                  ]
+                }
+              },
+              barGap: '-100%'
             }]
           }
         ]
@@ -149,9 +184,28 @@ export default {
         this.drawLine()
       },
       deep: true
+    },
+    listb: {
+      handler: function (val, oldVal) {
+        this.drawLine()
+      },
+      deep: true
     }
   },
-  props: ['list']
+  props: {
+    list: {
+      type: Array,
+      default () {
+        return []
+      }
+    },
+    listb: {
+      type: Array,
+      default () {
+        return []
+      }
+    }
+  }
 }
 </script>
 

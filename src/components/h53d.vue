@@ -1,14 +1,7 @@
 <template>
 <div>
   <div class="webgl-content">
-    <div id="unityContainer" style="width: 960px; height: 600px"></div>
-    <div class="footer">
-      <div class="webgl-logo"></div>
-      <button onclick="Add()">Add</button>
-      <button onclick="Change()">Change</button>
-      <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
-      <div class="title">demo {{xlocation}}</div>
-    </div>
+    <div id="unityContainer" style="width: 100VW; height: 100VH"></div>
   </div>
 </div>
 </template>
@@ -17,25 +10,66 @@
 
 export default {
   name: 'h53d',
+  data () {
+    return {
+      unity: {}
+    }
+  },
   mounted () {
-    var unityInstance = UnityLoader.instantiate('unityContainer', 'statics/Build/h5.json', { onProgress: UnityProgress })
-    this.$store.commit('sendmessage/xlocate')
+    var unityInstance = UnityLoader.instantiate('unityContainer', 'statics/Build/1101ForTest.json', { onProgress: UnityProgress })
+    unityInstance.SetFullscreen(1)
+    this.unity = unityInstance
   },
   methods: {
-    Add () { unityInstance.SendMessage('MyUnity', 'Add', '') },
-    Change () { unityInstance.SendMessage('MyUnity', 'Change', '') }
+    XAbnormal () { this.unity.SendMessage('MyUnity', 'XAbnormal', '') },
+    YAbnormal () { this.unity.SendMessage('MyUnity', 'YAbnormal', '') },
+    XVibration () { this.unity.SendMessage('MyUnity', 'XVibration', '') },
+    YVibration () { this.unity.SendMessage('MyUnity', 'YVibration', '') }
   },
   computed: {
     xlocation () {
       return this.$store.state.sendmessage.XLocation
+    },
+    ylocation () {
+      return this.$store.state.sendmessage.YLocation
+    },
+    xvibrate () {
+      return this.$store.state.sendmessage.XVibration
+    },
+    yvibrate () {
+      return this.$store.state.sendmessage.YVibration
     }
   },
   watch: {
     xlocation: {
       handler (newval, oldval) {
         if (newval === 1) {
-          this.Add()
+          this.XAbnormal()
           this.$store.commit('sendmessage/xrecover')
+        }
+      }
+    },
+    ylocation: {
+      handler (newval, oldval) {
+        if (newval === 1) {
+          this.YAbnormal()
+          this.$store.commit('sendmessage/yrecover')
+        }
+      }
+    },
+    xvibrate: {
+      handler (newval, oldval) {
+        if (newval === 1) {
+          this.XVibration()
+          this.$store.commit('sendmessage/xvibraterecover')
+        }
+      }
+    },
+    yvibrate: {
+      handler (newval, oldval) {
+        if (newval === 1) {
+          this.YVibration()
+          this.$store.commit('sendmessage/yvibraterecover')
         }
       }
     }
