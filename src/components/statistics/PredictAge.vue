@@ -9,7 +9,11 @@ export default {
     return {
       myEcharts: {},
       predictAge: Math.random().toString(),
-      list: [[15, 0], [0, 10], [-20, 12], [-30, 15], [-40, 30], [-50, 38], [-60, 40]]
+      list: [[0, 60], [10, 59], [20, 55], [30, 48], [40, 40], [45, 35], [50, 20], [55, 0]],
+      listb: [[0, 60], [10, 58], [20, 52], [30, 44]],
+      listc: [[30, 44], [40, 34], [45, 22], [50, 0]],
+      showdata: [[30, 44]],
+      destroyed: [[50, 0], [55, 0]]
     }
   },
   mounted () {
@@ -42,8 +46,8 @@ export default {
           containLabel: true
         },
         xAxis: {
-          min: -60,
-          max: 20,
+          min: 0,
+          max: 60,
           type: 'value',
           axisLine: {
             onZero: false,
@@ -52,6 +56,7 @@ export default {
             }
           },
           axisLabel: {
+            show: false,
             color: '#FFFFFF'
           },
           axisTick: {
@@ -63,7 +68,7 @@ export default {
         },
         yAxis: {
           min: 0,
-          max: 40,
+          max: 80,
           type: 'value',
           axisLine: {
             onZero: false,
@@ -72,6 +77,7 @@ export default {
             }
           },
           axisLabel: {
+            show: false,
             color: '#FFFFFF'
           },
           axisTick: {
@@ -83,7 +89,7 @@ export default {
         },
         series: [
           {
-            id: 'a',
+            id: 'predict',
             type: 'line',
             smooth: true,
             symbol: 'none',
@@ -109,6 +115,82 @@ export default {
             },
             lineStyle: {
               color: '#39b3c9'
+            }
+          },
+          {
+            id: 'Real',
+            type: 'line',
+            smooth: true,
+            symbol: 'none',
+            markLine: {
+              silent: true,
+              lineStyle: {
+                color: '#FFFFFF',
+                type: 'dotted'
+              },
+              label: {
+                show: false
+              },
+              data: [
+                {
+                  xAxis: 8
+                },
+                {
+                  xAxis: 25
+                },
+                {
+                  xAxis: 45
+                }
+              ]
+            },
+            data: that.listb,
+            lineStyle: {
+              color: '#ffdc4a'
+            }
+          },
+          {
+            id: 'RealPredict',
+            type: 'line',
+            smooth: true,
+            symbol: 'none',
+            data: that.listc,
+            lineStyle: {
+              color: '#ffdc4a',
+              type: 'dotted'
+            }
+          },
+          {
+            type: 'scatter',
+            id: 'Now',
+            symbol: 'triangle',
+            label: {
+              show: true,
+              distance: 1,
+              color: '#FFFFFF',
+              formatter: () => 'now',
+              position: [10, 10]
+            },
+            data: this.showdata,
+            symbolSize: 10,
+            itemStyle: {
+              color: '#f64e01'
+            }
+          },
+          {
+            type: 'scatter',
+            id: 'destroyed',
+            symbol: 'diamond',
+            label: {
+              show: true,
+              distance: 1,
+              color: '#FFFFFF',
+              formatter: () => 'end',
+              position: [10, -10]
+            },
+            data: this.destroyed,
+            symbolSize: 10,
+            itemStyle: {
+              color: '#f64e01'
             }
           }
         ]

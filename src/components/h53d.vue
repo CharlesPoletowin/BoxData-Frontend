@@ -16,8 +16,7 @@ export default {
     }
   },
   mounted () {
-    var unityInstance = UnityLoader.instantiate('unityContainer', 'statics/Build/1101ForTest.json', { onProgress: UnityProgress })
-    unityInstance.SetFullscreen(1)
+    var unityInstance = UnityLoader.instantiate('unityContainer', 'statics/Build/1102ForTest.json', { onProgress: UnityProgress })
     this.unity = unityInstance
   },
   methods: {
