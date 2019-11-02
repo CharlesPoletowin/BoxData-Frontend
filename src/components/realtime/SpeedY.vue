@@ -1,22 +1,22 @@
 <template>
-  <div :id='vibration' style="height:100%;"></div>
+  <div :id='speedy' style="height:100%;"></div>
 </template>
 
 <script>
 export default {
-  name: 'VibrationX',
+  name: 'Speed',
   data () {
     return {
       myEcharts: {},
-      vibration: Math.random().toString()
+      speedy: Math.random().toString()
     }
   },
   mounted () {
     this.drawLine()
   },
   methods: {
-    drawLine () {
-      let myChart = this.$echarts.init(document.getElementById(this.vibration))
+    drawLine: function () {
+      let myChart = this.$echarts.init(document.getElementById(this.speedy))
       myChart.resize()
       window.addEventListener('resize', () => {
         myChart.resize()
@@ -25,29 +25,30 @@ export default {
       myChart.setOption({
         backgroundColor: '',
         grid: {
-          top: '20%',
+          top: '15%',
           left: '5%',
-          right: '13%',
+          right: '10%',
           bottom: '7%'
         },
         title: {
-          text: '振幅X,Y轴',
+          text: '速度折线',
           textStyle: {
             color: '#FFFAC0',
             baseline: 'bottom',
             fontSize: 14
           },
-          left: 'left'
+          left: 'center'
         },
         tooltip: {
           trigger: 'axis'
         },
         xAxis: {
+          min: 1,
           type: 'value',
           axisLine: {
             onZero: false,
             lineStyle: {
-              color: '#53fdfe',
+              color: '#ffdc4a',
               width: 1
             },
             position: 'bottom'
@@ -63,11 +64,11 @@ export default {
             fontSize: 8
           },
           name: '时间',
-          nameGap: 1,
+          nameGap: 0,
           nameTextStyle: {
             color: '#d1e6eb',
             fontWeight: 'bold',
-            fontSize: 10
+            fontSize: 8
           },
           splitLine: {
             show: false
@@ -78,13 +79,13 @@ export default {
           splitLine: {
             show: false
           },
-          // min: -2,
-          // max: 2,
-          // data: [-2, -1, 0, 1, 2],
+          // min: -3,
+          max: 15,
+          // data: [-3, -2, -1, 0, 1, 2],
           axisLine: {
             onZero: false,
             lineStyle: {
-              color: '#53fdfe',
+              color: '#ffdc4a',
               width: 1
             }
           },
@@ -92,15 +93,14 @@ export default {
             show: false
           },
           axisLabel: {
-            show: false,
-            margin: 2,
+            margin: 1,
             color: '#d1e6eb',
             interval: 'auto',
             fontWeight: 'lighter',
-            fontSize: 10
+            fontSize: 8
           },
-          name: 'X',
-          nameGap: 0,
+          name: 'y',
+          nameGap: 5,
           nameTextStyle: {
             color: '#d1e6eb',
             fontWeight: 'bold',
@@ -118,57 +118,22 @@ export default {
             saveAsImage: {}
           }
         },
-        // visualMap: {
-        //   show: false,
-        //   top: 10,
-        //   right: 10,
-        //   pieces: [
-        //     // { gt: -2,
-        //     //   lte: -1,
-        //     //   color: '#53fdfe'
-        //     // },
-        //     {
-        //       gt: -3,
-        //       lt: -1,
-        //       color: '#cc0033'
-        //     }, {
-        //       gte: -1,
-        //       lte: 1,
-        //       color: '#ffde33'
-        //     },
-        //     {
-        //       gt: 1,
-        //       lte: 3,
-        //       color: '#cc0033'
-        //     }
-        //     // {
-        //     //   gt: 1,
-        //     //   lte: 2,
-        //     //   color: '#660099'
-        //     // }
-        //     //   {
-        //     //   gt: 300,
-        //     //   color: '#7e0023'
-        //     // }
-        //   ],
-        //   outOfRange: {
-        //     color: '#FFFFFF'
-        //   }
-        // },
         series: [
           {
-            name: 'VibrationX',
+            name: 'SpeedY',
             type: 'line',
             data: that.list,
+            showAllSymbol: false,
+            showSymbol: false,
             markLine: {
               symbol: 'none',
               silent: true,
+              label: {
+                show: false
+              },
               data: [
                 {
                   yAxis: -1
-                },
-                {
-                  yAxis: 0
                 },
                 {
                   yAxis: 1
@@ -177,21 +142,43 @@ export default {
               lineStyle: {
                 type: 'dotted',
                 color: 'rgba(220,220,220,1)'
-              },
-              label: {
-                show: false
               }
             },
-            itemStyle: {
-              color: '#25e1f4'
+            lineStyle: {
+              normal: {
+                color: '#ffdc4a'
+              }
             }
           },
           {
-            name: 'AbVibrationX',
+            name: 'AbnormalSpeedY',
             type: 'line',
             data: that.listb,
-            itemStyle: {
-              color: '#f64e01'
+            showAllSymbol: false,
+            showSymbol: false,
+            markLine: {
+              symbol: 'none',
+              silent: true,
+              label: {
+                show: false
+              },
+              data: [
+                {
+                  yAxis: -1
+                },
+                {
+                  yAxis: 1
+                }
+              ],
+              lineStyle: {
+                type: 'dotted',
+                color: 'rgba(220,220,220,1)'
+              }
+            },
+            lineStyle: {
+              normal: {
+                color: '#f64e01'
+              }
             }
           }
         ]
@@ -209,9 +196,6 @@ export default {
     listb: {
       handler: function (val, oldVal) {
         this.drawLine()
-        if (val.length) {
-          this.$store.commit('sendmessage/xvibrate')
-        }
       },
       deep: true
     }

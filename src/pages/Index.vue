@@ -3,6 +3,7 @@
     <div class='glSimulator'>
       <h53d></h53d>
     </div>
+    <div class="title1">预测性维护设备展示</div>
     <div>
       <realtime />
     </div>
@@ -39,5 +40,13 @@ export default {
   width: 100vw;
   position: absolute;
 }
+  .title1{
+    position:absolute
+    top:0%
+    left:40%
+    font-weight: bold
+    font-size: 30px
+    color: #fffac0
+  }
 
 </style>

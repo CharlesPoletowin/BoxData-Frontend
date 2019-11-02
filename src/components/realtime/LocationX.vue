@@ -76,6 +76,7 @@ export default {
           show: true,
           // max: 200,
           splitNumber: 4,
+          position: 'left',
           splitLine: {
             show: false,
             lineStyle: {
@@ -83,6 +84,7 @@ export default {
             }
           },
           axisLine: {
+            onZero: false,
             show: true,
             lineStyle: {
               color: '#53fdfe',

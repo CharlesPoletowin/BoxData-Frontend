@@ -31,7 +31,7 @@ export default {
             baseline: 'bottom',
             fontSize: 12
           },
-          left: 'right'
+          left: 'center'
         },
         grid: {
           left: 0,

@@ -1,5 +1,5 @@
 <template>
-  <div :id='speed' style="height:100%;"></div>
+  <div :id='speedx' style="height:100%;"></div>
 </template>
 
 <script>
@@ -8,7 +8,7 @@ export default {
   data () {
     return {
       myEcharts: {},
-      speed: Math.random().toString()
+      speedx: Math.random().toString()
     }
   },
   mounted () {
@@ -16,7 +16,7 @@ export default {
   },
   methods: {
     drawLine: function () {
-      let myChart = this.$echarts.init(document.getElementById(this.speed))
+      let myChart = this.$echarts.init(document.getElementById(this.speedx))
       myChart.resize()
       window.addEventListener('resize', () => {
         myChart.resize()
@@ -27,7 +27,7 @@ export default {
         grid: {
           top: '15%',
           left: '5%',
-          right: '7%',
+          right: '10%',
           bottom: '7%'
         },
         title: {
@@ -44,9 +44,7 @@ export default {
         },
         xAxis: {
           min: 1,
-          max: 30,
-          data: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
-          // type: 'value',
+          type: 'value',
           axisLine: {
             onZero: false,
             lineStyle: {
@@ -66,11 +64,14 @@ export default {
             fontSize: 8
           },
           name: '时间',
-          nameGap: 1,
+          nameGap: 0,
           nameTextStyle: {
             color: '#d1e6eb',
             fontWeight: 'bold',
-            fontSize: 10
+            fontSize: 8
+          },
+          splitLine: {
+            show: false
           }
         },
         yAxis: {
@@ -78,9 +79,9 @@ export default {
           splitLine: {
             show: false
           },
-          min: -3,
-          max: 3,
-          data: [-3, -2, -1, 0, 1, 2],
+          // min: -3,
+          max: 15,
+          // data: [-3, -2, -1, 0, 1, 2],
           axisLine: {
             onZero: false,
             lineStyle: {
@@ -92,13 +93,13 @@ export default {
             show: false
           },
           axisLabel: {
-            margin: 2,
+            margin: 1,
             color: '#d1e6eb',
             interval: 'auto',
             fontWeight: 'lighter',
-            fontSize: 10
+            fontSize: 8
           },
-          name: '速度',
+          name: 'x',
           nameGap: 5,
           nameTextStyle: {
             color: '#d1e6eb',
@@ -117,92 +118,70 @@ export default {
             saveAsImage: {}
           }
         },
-        // dataZoom: [{
-        //   startValue: '2014-06-01'
-        // }, {
-        //   type: 'inside'
-        // }],
-        visualMap: {
-          show: false,
-          top: 10,
-          right: 10,
-          pieces: [
-            { gt: -1.2,
-              lte: -0.8,
-              color: '#53fdfe'
-            },
-            { gt: 0.8,
-              lte: 1.2,
-              color: '#53fdfe'
-            },
-            // {
-            //   gt: -1,
-            //   lte: -0.5,
-            //   color: '#096'
-            // },
-            {
-              gt: -0.8,
-              lte: 0.8,
-              color: '#ffde33'
-            }
-            // {
-            //   gt: 0,
-            //   lte: 0.50,
-            //   color: '#ff9933'
-            // }, {
-            //   gt: 0.5,
-            //   lte: 1,
-            //   color: '#cc0033'
-            // },
-            // {
-            //   gt: 1,
-            //   lte: 2,
-            //   color: '#660099'
-            // }
-            //   {
-            //   gt: 300,
-            //   color: '#7e0023'
-            // }
-          ],
-          outOfRange: {
-            color: '#cc0033'
-          }
-        },
-        series: {
-          name: 'Speed',
-          type: 'line',
-          data: that.list,
-          showAllSymbol: false,
-          showSymbol: false,
-          markLine: {
-            symbol: 'none',
-            silent: true,
-            label: {
-              show: false
-            },
-            data: [
-              {
-                yAxis: -2
+        series: [
+          {
+            name: 'SpeedX',
+            type: 'line',
+            data: that.list,
+            showAllSymbol: false,
+            showSymbol: false,
+            markLine: {
+              symbol: 'none',
+              silent: true,
+              label: {
+                show: false
               },
-              {
-                yAxis: -1
-              },
-              {
-                yAxis: 0
-              },
-              {
-                yAxis: 1
-              },
-              {
-                yAxis: 2
+              data: [
+                {
+                  yAxis: -1
+                },
+                {
+                  yAxis: 1
+                }
+              ],
+              lineStyle: {
+                type: 'dotted',
+                color: 'rgba(220,220,220,1)'
               }
-            ],
+            },
             lineStyle: {
-              type: 'dotted',
-              color: 'rgba(220,220,220,1)'
+              normal: {
+                color: '#53fdfe'
+              }
+            }
+          },
+          {
+            name: 'Abnormal SpeedX',
+            type: 'line',
+            data: that.listb,
+            showAllSymbol: false,
+            showSymbol: false,
+            markLine: {
+              symbol: 'none',
+              silent: true,
+              label: {
+                show: false
+              },
+              data: [
+                {
+                  yAxis: -1
+                },
+                {
+                  yAxis: 1
+                }
+              ],
+              lineStyle: {
+                type: 'dotted',
+                color: 'rgba(220,220,220,1)'
+              }
+            },
+            lineStyle: {
+              normal: {
+                color: '#f64e01'
+              }
             }
           }
-        }
+        ]
       })
       this.myEcharts = myChart
     }
@@ -213,9 +192,28 @@ export default {
         this.drawLine()
       },
       deep: true
+    },
+    listb: {
+      handler: function (val, oldVal) {
+        this.drawLine()
+      },
+      deep: true
     }
   },
-  props: ['list']
+  props: {
+    list: {
+      type: Array,
+      default () {
+        return []
+      }
+    },
+    listb: {
+      type: Array,
+      default () {
+        return []
+      }
+    }
+  }
 }
 </script>
 

@@ -14,7 +14,10 @@
         <trail :list="trail" :listb="trailAbnormal"></trail>
       </div>
       <div class="charts speed">
-        <speed :list="speed"></speed>
+        <speedX :list="speedx"></speedX>
+      </div>
+      <div class="charts speedy">
+        <speedY :list="speedy"></speedY>
       </div>
       <div class="charts vibrationX">
         <vibrationX :list="vibrationX" :listb="AbvibrationX"></vibrationX>
@@ -41,7 +44,8 @@
 import locationX from 'src/components/realtime/LocationX.vue'
 import locationY from './LocationY'
 import trail from './Trail'
-import speed from './Speed'
+import speedX from './SpeedX'
+import speedY from './SpeedY'
 import vibrationX from './VibrationX'
 import vibrationY from './VibrationY'
 import current from './Current'
@@ -56,7 +60,8 @@ export default {
     locationX,
     locationY,
     trail,
-    speed,
+    speedX,
+    speedY,
     current,
     temperature,
     humidity,
@@ -70,7 +75,8 @@ export default {
       Ablisty: [],
       trail: [[1, 1, 1], [2, 0, 2], [3, -1, 3], [2, -2, 4], [1, -3, 5]],
       trailAbnormal: [[1, 0, 1], [2, 0, 1]],
-      speed: [-1, -1, -1, -1, 0, 1, 1, 1, 1.0, 1, 1, -1, -2, -2, -1, 1, 1, 1, 1, 1, 0, -2, -1, -1, -1],
+      speedx: [[1, 1], [2, 2], [3, 1], [4, 0], [5, 1], [6, 2]],
+      speedy: [[1, 1], [2, 2], [3, 1], [4, 0], [5, 1], [6, 2]],
       vibrationX: [1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 2, -2, -2],
       AbvibrationX: [],
       vibrationY: [1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 2, -2, -2],
@@ -98,10 +104,14 @@ export default {
       this.AblistX = tem.locationx[1]
       this.listY = tem.locationy[0]
       this.Ablisty = tem.locationy[1]
+      this.trail = tem.location[0]
+      this.trailAbnormal = tem.location[1]
       this.vibrationX = tem.vibration[0]
       this.AbvibrationX = tem.vibration[1]
       this.vibrationY = tem.vibration[0]
       this.AbvibrationY = tem.vibration[1]
+      this.speedx = tem.speedx[0]
+      this.speedy = tem.speedy[0]
     }
   }
 }
@@ -174,9 +184,14 @@ widthMore = 8%;
 .speed{
   left:initialLeft;
   top:initialTop+2*chartHeight;
-  width:2*chartWidth;
+  width:chartWidth;
   height: 2*chartHeight;
 }
+  .speedy{
+    left:initialLeft+chartWidth;
+    top:initialTop+2*chartHeight;
+    height: 2*chartHeight;
+  }
 .vibrationX{
     left:initialLeft;
     top: initialTop+4*chartHeight

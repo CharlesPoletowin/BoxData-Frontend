@@ -102,6 +102,7 @@ export default {
             }
           },
           axisLine: {
+            onZero: false,
             show: true,
             lineStyle: {
               color: '#ffdc4a',
