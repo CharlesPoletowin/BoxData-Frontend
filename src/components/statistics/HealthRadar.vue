@@ -25,7 +25,7 @@ export default {
       var indicator = [
         {
           text: '速度X',
-          max: 6000
+          max: 5000
         },
         {
           text: '速度Y',
@@ -92,13 +92,13 @@ export default {
           name: {
             textStyle: {
               color: '#fff',
-              fontSize: 8
+              fontSize: 12
             },
             show: true
           },
           nameGap: 3,
           radius: '75%',
-          center: ['35%', '45%'],
+          center: ['50%', '50%'],
           indicator: indicator,
           splitArea: { // 坐标轴在 grid 区域中的分隔区域，默认不显示。
             show: true,
@@ -123,7 +123,7 @@ export default {
           symbolSize: 8,
           // symbol: 'angle',
           data: [{
-            value: [3200, 3000, 3400, 2000, 3900, 2000],
+            value: [3200, 3000, 3400, 2000, 3900, 4000, 3700, 3400, 4000],
             name: legendData[1],
             itemStyle: {
               normal: {

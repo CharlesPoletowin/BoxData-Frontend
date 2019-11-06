@@ -41,7 +41,7 @@ export default {
           containLabel: true
         },
         xAxis: [{
-          name: '时间',
+          // name: '时间',
           nameLocation: 'end',
           show: true,
           type: 'value',
@@ -69,7 +69,7 @@ export default {
           }
         }],
         yAxis: [{
-          name: 'X',
+          // name: 'X',
           nameLocation: 'center',
           type: 'value',
           // min: 0,

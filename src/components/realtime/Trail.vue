@@ -41,7 +41,14 @@ export default {
             }
           },
           axisLine: {
-            onZero: false
+            onZero: false,
+            show: false
+          },
+          axisTick: {
+            show: false
+          },
+          axisLabel: {
+            show: false
           }
         },
         yAxis: {
@@ -52,7 +59,14 @@ export default {
             }
           },
           axisLine: {
-            onZero: false
+            onZero: false,
+            show: false
+          },
+          axisTick: {
+            show: false
+          },
+          axisLabel: {
+            show: false
           },
           scale: true
         },
@@ -114,6 +128,17 @@ export default {
                 }])
               }
             }
+          },
+          {
+            name: 'actual',
+            type: 'line',
+            symbol: 'none',
+            lineStyle: {
+              width: 1,
+              opacity: 0.9,
+              color: '#FFFFFF'
+            },
+            data: [[1, 0], [0, 1], [-1, 0], [0, -1], [1, 0]]
           }
         ]
       })

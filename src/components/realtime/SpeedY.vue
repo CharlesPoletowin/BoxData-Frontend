@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'Speed',
+  name: 'SpeedY',
   data () {
     return {
       myEcharts: {},

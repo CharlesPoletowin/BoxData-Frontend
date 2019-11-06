@@ -36,7 +36,7 @@ export default {
         grid: {
           left: 0,
           top: '20%',
-          bottom: '5%',
+          bottom: '0',
           right: '50%'
         },
         tooltip: {
@@ -80,6 +80,7 @@ export default {
             show: false
           },
           axisLabel: {
+            show: false,
             textStyle: {
               color: '#fff'
             }

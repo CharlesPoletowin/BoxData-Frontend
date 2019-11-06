@@ -36,18 +36,18 @@ export default {
           }
         },
 
-        legend: {
-          data: ['速度X', '速度Y', 'X', 'Y', '振幅', '电流'],
-          show: false
-        },
+        // legend: {
+        //   data: ['速度X', '速度Y', 'X', 'Y', '振幅', '电流'],
+        //   show: false
+        // },
 
         singleAxis: {
           top: 10,
           bottom: 20,
           axisTick: {},
           axisLabel: {},
-          axisLine:{
-            lineStyle:{
+          axisLine: {
+            lineStyle: {
               color: '#FFFFFF'
             }
           },
@@ -141,7 +141,12 @@ export default {
               ['2015/11/26', 16, '振幅'], ['2015/11/27', 22, '振幅'], ['2015/11/28', 10, '振幅']]
           }
         ],
-        color: ['#ffdc4a', '#c66933', '#703030', '#2484c0', '#1665b9', '#0032af']
+        color: [
+          // '#FF0000', '#FF7F00', '#FFFF00',
+          // '#00FF00', '#00FFFF', '#8B00FF',
+          '#ffdc4a', '#c66933', '#703030',
+          '#2484c0', '#1665b9', '#0032af'
+        ]
       })
       this.myEcharts = myChart
     }
