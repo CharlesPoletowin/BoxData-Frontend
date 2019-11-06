@@ -34,7 +34,6 @@ export default {
           trigger: 'axis'
         },
         xAxis: {
-          min: 0,
           type: 'value',
           axisLine: {
             onZero: false,
@@ -70,9 +69,6 @@ export default {
           splitLine: {
             show: false
           },
-          min: -2,
-          max: 2,
-          data: [-2, -1, 0, 1, 2],
           axisLine: {
             onZero: false,
             lineStyle: {

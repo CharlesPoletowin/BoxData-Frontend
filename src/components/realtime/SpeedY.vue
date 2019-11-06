@@ -43,7 +43,6 @@ export default {
           trigger: 'axis'
         },
         xAxis: {
-          min: 1,
           type: 'value',
           axisLine: {
             onZero: false,

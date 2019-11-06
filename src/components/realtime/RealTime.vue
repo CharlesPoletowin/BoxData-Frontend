@@ -14,10 +14,10 @@
         <trail :list="trail" :listb="trailAbnormal"></trail>
       </div>
       <div class="charts speed">
-        <speedX :list="speedx"></speedX>
+        <speedX :list="speedx" :listb="Abspeedx"></speedX>
       </div>
       <div class="charts speedy">
-        <speedY :list="speedy"></speedY>
+        <speedY :list="speedy" :listb="Abspeedy"></speedY>
       </div>
       <div class="charts vibrationX">
         <vibrationX :list="vibrationX" :listb="AbvibrationX"></vibrationX>
@@ -75,8 +75,10 @@ export default {
       Ablisty: [],
       trail: [[1, 1, 1], [2, 0, 2], [3, -1, 3], [2, -2, 4], [1, -3, 5]],
       trailAbnormal: [[1, 0, 1], [2, 0, 1]],
-      speedx: [[1, 1], [2, 2], [3, 1], [4, 0], [5, 1], [6, 2]],
+      speedx: [],
+      Abspeedx: [[1, 10], [2, 8]],
       speedy: [[1, 1], [2, 2], [3, 1], [4, 0], [5, 1], [6, 2]],
+      Abspeedy: [],
       vibrationX: [1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 2, -2, -2],
       AbvibrationX: [],
       vibrationY: [1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 2, -2, -2],
@@ -111,7 +113,9 @@ export default {
       this.vibrationY = tem.vibration[0]
       this.AbvibrationY = tem.vibration[1]
       this.speedx = tem.speedx[0]
+      this.Abspeedx = tem.speedx[1]
       this.speedy = tem.speedy[0]
+      this.Abspeedy = tem.speedy[1]
     }
   }
 }

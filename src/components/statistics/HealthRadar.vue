@@ -24,28 +24,40 @@ export default {
       let that = this
       var indicator = [
         {
-          text: '小型车',
+          text: '速度X',
           max: 6000
         },
         {
-          text: '中型车',
+          text: '速度Y',
           max: 5000
         },
         {
-          text: '大型车',
+          text: 'X',
           max: 5000
         },
         {
-          text: '货车',
+          text: 'Y',
           max: 5000
         //  axisLabel: {show: true, textStyle: {fontSize: 18, color: '#333'}}
         },
         {
-          text: '特种车',
+          text: '振幅',
           max: 5000
         },
         {
-          text: '贵宾车',
+          text: '电流',
+          max: 5000
+        },
+        {
+          text: '电压',
+          max: 5000
+        },
+        {
+          text: '温度',
+          max: 5000
+        },
+        {
+          text: '湿度',
           max: 5000
         }
       ]
@@ -58,7 +70,7 @@ export default {
             color: '#fffac0',
             baseline: 'bottom'
           },
-          left: 'center'
+          left: 'right'
         },
         color: ['#25e1f4'],
         legend: {
@@ -80,13 +92,13 @@ export default {
           name: {
             textStyle: {
               color: '#fff',
-              fontSize: 12
+              fontSize: 8
             },
-            show: false
+            show: true
           },
           nameGap: 3,
-          radius: '100%',
-          center: ['35%', '50%'],
+          radius: '75%',
+          center: ['35%', '45%'],
           indicator: indicator,
           splitArea: { // 坐标轴在 grid 区域中的分隔区域，默认不显示。
             show: true,

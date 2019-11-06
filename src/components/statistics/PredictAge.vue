@@ -35,17 +35,24 @@ export default {
             color: '#fffac0',
             baseline: 'bottom'
           },
-          left: 'center'
+          left: 'right'
         },
         grid: {
-          left: '0%',
-          right: '2%',
-          bottom: '0%',
+          left: '8%',
+          right: '5%',
+          bottom: '5%',
           top: '15%',
           show: false,
           containLabel: true
         },
         xAxis: {
+          name: '时间',
+          nameGap: 0,
+          nameTextStyle: {
+            color: '#d1e6eb',
+            fontWeight: 'bold',
+            fontSize: 8
+          },
           min: 0,
           max: 60,
           type: 'value',
@@ -67,6 +74,13 @@ export default {
           }
         },
         yAxis: {
+          name: '设备健康状况',
+          nameGap: 0,
+          nameTextStyle: {
+            color: '#d1e6eb',
+            fontWeight: 'bold',
+            fontSize: 8
+          },
           min: 0,
           max: 80,
           type: 'value',
