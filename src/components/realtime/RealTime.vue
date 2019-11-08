@@ -22,9 +22,9 @@
       <div class="charts vibrationX">
         <vibrationX :list="vibrationX" :listb="AbvibrationX"></vibrationX>
       </div>
-      <div class="charts vibrationY">
-        <vibrationY :list="vibrationY" :listb="AbvibrationY"></vibrationY>
-      </div>
+<!--      <div class="charts vibrationY">-->
+<!--&lt;!&ndash;        <vibrationY :list="vibrationY" :listb="AbvibrationY"></vibrationY>&ndash;&gt;-->
+<!--      </div>-->
       <div class="charts current">
         <current :list="current"></current>
       </div>
@@ -47,7 +47,6 @@ import trail from './Trail'
 import speedX from './SpeedX'
 import speedY from './SpeedY'
 import vibrationX from './VibrationX'
-import vibrationY from './VibrationY'
 import current from './Current'
 import temperature from './Temperature'
 import humidity from './Humidity'
@@ -55,7 +54,6 @@ import voltage from './Voltage'
 
 export default {
   components: {
-    vibrationY,
     vibrationX,
     locationX,
     locationY,
@@ -81,8 +79,8 @@ export default {
       Abspeedy: [],
       vibrationX: [1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 2, -2, -2],
       AbvibrationX: [],
-      vibrationY: [1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 2, -2, -2],
-      AbvibrationY: [],
+      // vibrationY: [1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 2, -2, -2],
+      // AbvibrationY: [],
       current: [75],
       voltage: [80],
       temperature: [25],
@@ -100,8 +98,8 @@ export default {
       let tem = JSON.parse(val)
       this.temperature = tem.temperature[0][0]
       this.abtemperature = tem.temperature[1][0]
-      this.humidity = tem.humidity[0][0]
-      this.abhumidity = tem.humidity[1][0]
+      this.humidity = tem.noise[0][0]
+      this.abhumidity = tem.noise[1][0]
       this.listX = tem.locationx[0]
       this.AblistX = tem.locationx[1]
       this.listY = tem.locationy[0]
@@ -200,13 +198,7 @@ widthMore = 8%;
     left:initialLeft;
     top: initialTop+4*chartHeight
     height: 2*chartHeight;
-    width:chartWidth+0.1%;
-}
-.vibrationY{
-    left:initialLeft+chartWidth;
-    top: initialTop+4*chartHeight;
-    height: 2*chartHeight;
-    width:chartWidth;
+    width: 2*chartWidth;
 }
 .current{
   left:initialLeft+2*chartWidth;

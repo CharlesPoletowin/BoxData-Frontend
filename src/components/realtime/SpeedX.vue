@@ -175,7 +175,10 @@ export default {
     },
     listb: {
       handler: function (val, oldVal) {
-        this.drawLine()
+        if (val.length) {
+          this.drawLine()
+          this.$store.commit('sendmessage/xvibrate')
+        }
       },
       deep: true
     }

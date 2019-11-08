@@ -133,10 +133,7 @@ export default {
               silent: true,
               data: [
                 {
-                  yAxis: 100
-                },
-                {
-                  yAxis: 200
+                  yAxis: 300
                 }
               ],
               lineStyle: {

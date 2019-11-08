@@ -208,9 +208,9 @@ export default {
     },
     listb: {
       handler: function (val, oldVal) {
-        this.drawLine()
         if (val.length) {
-          this.$store.commit('sendmessage/xvibrate')
+          this.drawLine()
+          this.$store.commit('sendmessage/shakeIt')
         }
       },
       deep: true

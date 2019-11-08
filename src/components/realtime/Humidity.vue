@@ -117,7 +117,7 @@ export default {
               fontWeight: 'bold',
               fontSize: 18,
               formatter: function (o) {
-                return o.value + '%'
+                return o.value + 'dB'
               }
 
             },

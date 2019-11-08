@@ -34,3 +34,11 @@ export function yvibrate (state) {
 export function yvibraterecover (state) {
   state.YVibration = 0
 }
+
+export function shakeIt (state) {
+  state.ShakeIt = 1
+}
+
+export function shakeRecover (state) {
+  state.ShakeIt = 0
+}

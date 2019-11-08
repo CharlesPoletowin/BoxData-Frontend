@@ -26,7 +26,7 @@ export default {
     YAbnormal () { this.unity.SendMessage('MyUnity', 'YAbnormal', '') },
     XVibration () { this.unity.SendMessage('MyUnity', 'XVibration', '') },
     YVibration () { this.unity.SendMessage('MyUnity', 'YVibration', '') },
-    ShankeIt () { this.unity.SendMessage('MyUnity', 'ShankeIt', '') }
+    ShakeIt () { this.unity.SendMessage('MyUnity', 'ShakeIt', '') }
   },
   computed: {
     xlocation () {
@@ -37,12 +37,18 @@ export default {
     },
     xvibrate () {
       return this.$store.state.sendmessage.XVibration
+    },
+    yvibrate () {
+      return this.$store.state.sendmessage.YVibration
+    },
+    shakeIt () {
+      return this.$store.state.sendmessage.ShakeIt
     }
   },
   watch: {
     xlocation: {
       handler: function (newval, oldval) {
-        if (newval === 1 && this.initDone) {
+        if (newval === 1) {
           if (this.initDone) {
             this.XAbnormal()
           }
@@ -52,7 +58,7 @@ export default {
     },
     ylocation: {
       handler: function (newval, oldval) {
-        if (newval === 1 && this.initDone) {
+        if (newval === 1) {
           if (this.initDone) {
             this.YAbnormal()
           }
@@ -65,10 +71,29 @@ export default {
         if (newval === 1) {
           this.$store.commit('sendmessage/xvibraterecover')
           if (this.initDone) {
-            this.ShankeIt()
             this.XVibration()
+          }
+        }
+      }
+    },
+    yvibrate: {
+      handler: function (newVal, oldVal) {
+        if (newVal === 1) {
+          this.$store.commit('sendmessage/yvibraterecover')
+          if (this.initDone) {
             this.YVibration()
           }
+        }
+      }
+    },
+    shakeIt: {
+      handler: function (newVal, oldVal) {
+        console.log('shakeit' + newVal)
+        if (newVal === 1) {
+          if (this.initDone) {
+            this.ShakeIt()
+          }
+          this.$store.commit('sendmessage/shakeRecover')
         }
       }
     }
