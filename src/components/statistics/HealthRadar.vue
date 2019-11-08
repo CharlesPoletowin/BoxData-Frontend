@@ -64,14 +64,14 @@ export default {
       var legendData = ['预计状况', '实际状况']
       myChart.setOption({
         backgroundColor: '',
-        title: {
-          text: '健康状况',
-          textStyle: {
-            color: '#fffac0',
-            baseline: 'bottom'
-          },
-          left: 'right'
-        },
+        // title: {
+        //   text: '健康状况',
+        //   textStyle: {
+        //     color: '#fffac0',
+        //     baseline: 'bottom'
+        //   },
+        //   left: 'right'
+        // },
         color: ['#25e1f4', '#4A99FF'],
         legend: {
           orient: 'vertical',
@@ -98,7 +98,7 @@ export default {
           },
           nameGap: 3,
           radius: '75%',
-          center: ['50%', '50%'],
+          center: ['45%', '50%'],
           indicator: indicator,
           splitArea: { // 坐标轴在 grid 区域中的分隔区域，默认不显示。
             show: true,
@@ -205,7 +205,6 @@ export default {
                   }
                 },
                 symbolSize: 2
-
               }]
           }
         ]

@@ -151,7 +151,7 @@ export default {
               fontWeight: 'bold',
               fontSize: 14,
               formatter: function (o) {
-                return o.value + '%异常!'
+                return o.value + 'dB异常!'
               }
 
             },

@@ -29,14 +29,14 @@ export default {
       let that = this
       myChart.setOption({
         backgroundColor: '',
-        title: {
-          text: '预测寿命',
-          textStyle: {
-            color: '#fffac0',
-            baseline: 'bottom'
-          },
-          left: 'right'
-        },
+        // title: {
+        //   text: '预测寿命',
+        //   textStyle: {
+        //     color: '#fffac0',
+        //     baseline: 'bottom'
+        //   },
+        //   left: 'right'
+        // },
         grid: {
           left: '8%',
           right: '5%',

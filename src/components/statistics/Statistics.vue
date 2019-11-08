@@ -55,29 +55,29 @@ export default {
   }
 .RelatedColor{
   left:initialLeft+2*chartWidth;
-  top: initialTop+4*chartHeight;
+  top: initialTop+4*chartHeight +2%;
   height: 2*chartHeight;
   width: 2*chartWidth;
 }
   .Abnormal{
     left:initialLeft+4*chartWidth;
-    top: initialTop+4*chartHeight;
+    top: initialTop+4*chartHeight+ 10%;
     height: 2*chartHeight;
     width: 1.5*chartWidth;
   }
   .River{
-    left:initialLeft+5.5*chartWidth;
-    top: initialTop+4*chartHeight;
-    height: 2*chartHeight;
+    left:initialLeft+5.5*chartWidth+1%;
+    top: initialTop+4*chartHeight+7%;
+    height: 25%
     width: 2*chartWidth;
   }
   .Prediction{
     left:initialLeft+5.5*chartWidth;
-    top:initialTop+2*chartHeight;
-    height: 2*chartHeight;
+    top:initialTop+2*chartHeight+1%;
+    height: 2*chartHeight+2%;
     width: 2*chartWidth;
   }
-    .PredictWords1{
+  .PredictWords1{
       position: absolute;
       left: 8%;
       top: 15%;
@@ -111,8 +111,8 @@ export default {
     }
   .HealthRadar{
     left:initialLeft+5.5*chartWidth;
-    top:initialTop;
+    top:initialTop+2%;
     height: 2*chartHeight;
-    width: 2*chartWidth;
+    width: 25%;
   }
 </style>

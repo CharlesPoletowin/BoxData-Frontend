@@ -24,13 +24,13 @@ export default {
       let that = this
       myChart.setOption({
         backgroundColor: '',
-        title: {
-          text: '关联色彩盘',
-          left: 'center',
-          textStyle: {
-            color: '#fffac0'
-          }
-        },
+        // title: {
+        //   text: '关联色彩盘',
+        //   left: 'center',
+        //   textStyle: {
+        //     color: '#fffac0'
+        //   }
+        // },
         grid: {
           left: '15%',
           top: '25%',

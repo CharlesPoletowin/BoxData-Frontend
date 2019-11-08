@@ -24,14 +24,14 @@ export default {
       let that = this
       myChart.setOption({
         backgroundColor: '',
-        title: {
-          text: '河流图',
-          textStyle: {
-            color: '#fffac0',
-            baseline: 'bottom'
-          },
-          left: 'right'
-        },
+        // title: {
+        //   text: '河流图',
+        //   textStyle: {
+        //     color: '#fffac0',
+        //     baseline: 'bottom'
+        //   },
+        //   left: 'right'
+        // },
         tooltip: {
           trigger: 'axis',
           axisPointer: {
@@ -62,8 +62,12 @@ export default {
         singleAxis: {
           top: 10,
           bottom: 20,
-          axisTick: {},
-          axisLabel: {},
+          axisTick: {
+            show: false
+          },
+          axisLabel: {
+            show: false
+          },
           axisLine: {
             lineStyle: {
               color: '#FFFFFF'

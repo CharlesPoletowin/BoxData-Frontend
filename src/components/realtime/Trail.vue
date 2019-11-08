@@ -24,15 +24,15 @@ export default {
       let that = this
       myChart.setOption({
         backgroundColor: '',
-        title: {
-          text: '位置轨迹图',
-          textStyle: {
-            color: '#FFFAC0',
-            baseline: 'bottom',
-            fontSize: 12
-          },
-          left: 'center'
-        },
+        // title: {
+        //   text: '位置轨迹图',
+        //   textStyle: {
+        //     color: '#FFFAC0',
+        //     baseline: 'bottom',
+        //     fontSize: 12
+        //   },
+        //   left: 'center'
+        // },
         xAxis: {
           splitLine: {
             show: false,
@@ -76,7 +76,11 @@ export default {
             data: that.list,
             type: 'scatter',
             symbolSize: function (data) {
-              return 1000 / (data[2] + 200)
+              if (data[2] < 1) {
+                return 5
+              } else if (data[2] > 200) {
+                return 2.5
+              } else return 1000 / (data[2] + 200)
             },
             label: {
               emphasis: {
@@ -105,7 +109,11 @@ export default {
             data: that.listb,
             type: 'scatter',
             symbolSize: function (data) {
-              return 1000 / (data[2] + 200)
+              if (data[2] < 1) {
+                return 5
+              } else if (data[2] > 200) {
+                return 2.5
+              } else return 1000 / (data[2] + 200)
             },
             label: {
               emphasis: {

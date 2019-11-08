@@ -30,15 +30,15 @@ export default {
           right: '10%',
           bottom: '7%'
         },
-        title: {
-          text: '速度折线',
-          textStyle: {
-            color: '#FFFAC0',
-            baseline: 'bottom',
-            fontSize: 14
-          },
-          left: 'center'
-        },
+        // title: {
+        //   text: '速度折线',
+        //   textStyle: {
+        //     color: '#FFFAC0',
+        //     baseline: 'bottom',
+        //     fontSize: 14
+        //   },
+        //   left: 'center'
+        // },
         tooltip: {
           trigger: 'axis'
         },
@@ -169,14 +169,14 @@ export default {
   watch: {
     list: {
       handler: function (val, oldVal) {
-        this.drawLine()
+        // this.drawLine()
       },
       deep: true
     },
     listb: {
       handler: function (val, oldVal) {
+        this.drawLine()
         if (val.length) {
-          this.drawLine()
           this.$store.commit('sendmessage/xvibrate')
         }
       },

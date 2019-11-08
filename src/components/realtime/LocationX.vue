@@ -23,15 +23,15 @@ export default {
       })
       let that = this
       myChart.setOption({
-        title: {
-          text: '位置XY轴图',
-          textStyle: {
-            color: '#FFFAC0',
-            baseline: 'bottom',
-            fontSize: 12
-          },
-          left: 'center'
-        },
+        // title: {
+        //   text: '位置XY轴图',
+        //   textStyle: {
+        //     color: '#FFFAC0',
+        //     baseline: 'bottom',
+        //     fontSize: 12
+        //   },
+        //   left: 'center'
+        // },
         backgroundColor: '',
         grid: {
           top: '25%',
@@ -196,12 +196,12 @@ export default {
     }
   },
   watch: {
-    list: {
-      handler: function (val, oldVal) {
-        this.drawline()
-      },
-      deep: true
-    },
+    // list: {
+    //   handler: function (val, oldVal) {
+    //     this.drawline()
+    //   },
+    //   deep: true
+    // },
     listb: {
       handler: function (val, oldVal) {
         this.drawline()

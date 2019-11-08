@@ -17,7 +17,7 @@ export default {
     }
   },
   mounted () {
-    var unityInstance = UnityLoader.instantiate('unityContainer', 'statics/Build/1107_2.json', { onProgress: UnityProgress })
+    var unityInstance = UnityLoader.instantiate('unityContainer', 'statics/Build/1109_12.json', { onProgress: UnityProgress })
     this.unity = unityInstance
     this.initDone = true
   },

@@ -23,8 +23,8 @@ export default {
       })
       let that = this
       myChart.setOption({
-        title: {
-        },
+        // title: {
+        // },
         backgroundColor: '',
         tooltip: {
           trigger: 'axis',
@@ -190,12 +190,12 @@ export default {
     }
   },
   watch: {
-    list: {
-      handler: function (val, oldVal) {
-        this.drawline()
-      },
-      deep: true
-    },
+    // list: {
+    //   handler: function (val, oldVal) {
+    //     this.drawline()
+    //   },
+    //   deep: true
+    // },
     listb: {
       handler: function (val, oldVal) {
         this.drawline()

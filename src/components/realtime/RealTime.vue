@@ -178,44 +178,45 @@ widthMore = 8%;
 }
 .speed{
   left:initialLeft;
-  top:initialTop+2*chartHeight;
-  width:chartWidth;
+  top:initialTop+2*chartHeight+2.5%;
+  width: 11%;
   height: 2*chartHeight;
 }
   .speedy{
-    left:initialLeft+chartWidth;
-    top:initialTop+2*chartHeight;
+    left:initialLeft+ 11%;
+    top:initialTop+2*chartHeight+2.5%;
     height: 2*chartHeight;
+    width: 11%;
   }
 .vibrationX{
     left:initialLeft;
-    top: initialTop+4*chartHeight
+    top: initialTop+4*chartHeight+2.5%
     height: 2*chartHeight;
     width: 2*chartWidth;
 }
 .current{
-  left:initialLeft+2*chartWidth;
-  top:initialTop+2%;
+  left:initialLeft+2*chartWidth+2%;
+  top:initialTop+2.5%;
   width:10%;
   height:20%;
   z-index: 11
 }
 .voltage{
-  left:initialLeft++2*chartWidth+10%;
-  top:initialTop+2%
+  left:initialLeft++2*chartWidth+12%;
+  top:initialTop+2.5%
   width:10%;
   height:20%
 }
   .temperature{
-    left:initialLeft++2*chartWidth+20%;
-    top:initialTop+2%
+    left:initialLeft++2*chartWidth+25%;
+    top:initialTop+4%
     height:15%
     width: 10%
     /*background-color #C10015*/
   }
   .humidity{
-    left:initialLeft++2*chartWidth+30%;
-    top:initialTop+2%
+    left:initialLeft++2*chartWidth+35%;
+    top:initialTop+4%
     height:15%
     width: 10%
     /*background-color #9C27B0*/

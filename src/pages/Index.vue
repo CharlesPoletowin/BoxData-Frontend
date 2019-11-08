@@ -3,7 +3,6 @@
     <div class='glSimulator'>
       <h53d></h53d>
     </div>
-    <div class="title1">预测性维护设备展示</div>
     <div>
       <realtime />
     </div>

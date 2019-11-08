@@ -30,15 +30,15 @@ export default {
           right: '13%',
           bottom: '7%'
         },
-        title: {
-          text: '振幅X,Y轴',
-          textStyle: {
-            color: '#FFFAC0',
-            baseline: 'bottom',
-            fontSize: 14
-          },
-          left: 'left'
-        },
+        // title: {
+        //   text: '振幅X,Y轴',
+        //   textStyle: {
+        //     color: '#FFFAC0',
+        //     baseline: 'bottom',
+        //     fontSize: 14
+        //   },
+        //   left: 'left'
+        // },
         tooltip: {
           trigger: 'axis'
         },
@@ -56,11 +56,12 @@ export default {
             show: false
           },
           axisLabel: {
-            margin: 2,
-            color: '#d1e6eb',
-            interval: 0,
-            fontWeight: 'lighter',
-            fontSize: 8
+            show: false
+            // margin: 2,
+            // color: '#d1e6eb',
+            // interval: 0,
+            // fontWeight: 'lighter',
+            // fontSize: 8
           },
           name: '时间',
           nameGap: 1,
