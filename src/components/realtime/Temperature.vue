@@ -46,7 +46,7 @@ export default {
         },
         yAxis: [{
           min: 0,
-          max: 80,
+          max: 50,
           position: 'left',
           offset: 0,
           axisTick: {

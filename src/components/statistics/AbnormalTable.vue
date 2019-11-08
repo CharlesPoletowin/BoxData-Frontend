@@ -22,23 +22,32 @@ export default {
   data () {
     return {
       abnormal: [
-        { monitor: 'pressure',
-          time: '2019-10-29',
+        { monitor: 'X轴',
+          time: '2019-10',
           value: '77' },
-        { monitor: 'temperature',
-          time: '2019-10-28',
+        { monitor: 'Y轴',
+          time: '2019-10',
           value: '50' },
-        { monitor: 'moisture',
-          time: '2019-10-28',
+        { monitor: '速度X',
+          time: '2019-10',
           value: '90' },
-        { monitor: 'location',
-          time: '2019-10-27',
+        { monitor: '速度Y',
+          time: '2019-10',
           value: '40' },
-        { monitor: 'speed',
-          time: '2019-10-26',
-          value: '0.6' },
-        { monitor: 'vibration',
-          time: '2019-10-25',
+        { monitor: '振幅',
+          time: '2019-10',
+          value: '6' },
+        { monitor: '电压',
+          time: '2019-10',
+          value: '4' },
+        { monitor: '温度',
+          time: '2019-10',
+          value: '16' },
+        { monitor: '湿度',
+          time: '2019-10',
+          value: '0' },
+        { monitor: '电流',
+          time: '2019-10',
           value: '15' }
       ]
     }
@@ -48,13 +57,14 @@ export default {
 
 <style scoped>
   .Abnormal {
-    margin:auto;
-    margin-top: 2%;
-    width: 90%;
-    height: 100%;
-    border: 1px solid white;
+    /*margin:auto;*/
+    margin-top: 0%;
+    margin-left: 5%;
+    width: 80%;
+    /*height: 90%;*/
+    border: 0.1px solid white;
     color: white;
-    font-size: 10px;
+    font-size: 8px;
   }
   td{
     border-bottom: 1px dotted white;

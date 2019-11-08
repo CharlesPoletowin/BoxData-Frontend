@@ -137,6 +137,7 @@ export default {
             smooth: true,
             symbol: 'none',
             markLine: {
+              symbol: 'none',
               silent: true,
               lineStyle: {
                 color: '#FFFFFF',
@@ -147,7 +148,7 @@ export default {
               },
               data: [
                 {
-                  xAxis: 8
+                  xAxis: 9
                 },
                 {
                   xAxis: 25

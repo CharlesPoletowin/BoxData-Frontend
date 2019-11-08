@@ -128,9 +128,28 @@ export default {
             tooltip: {
               show: false
             },
+            markLine: {
+              symbol: 'none',
+              silent: true,
+              data: [
+                {
+                  yAxis: 100
+                },
+                {
+                  yAxis: 200
+                }
+              ],
+              lineStyle: {
+                type: 'dotted',
+                color: 'rgba(220,220,220,1)'
+              },
+              label: {
+                show: false
+              }
+            },
             areaStyle: { // 区域填充样式
               normal: {
-              // 线性渐变，前4个参数分别是x0,y0,x2,y2(范围0~1);相当于图形包围盒中的百分比。如果最后一个参数是‘true’，则该四个值是绝对像素位置。
+                // 线性渐变，前4个参数分别是x0,y0,x2,y2(范围0~1);相当于图形包围盒中的百分比。如果最后一个参数是‘true’，则该四个值是绝对像素位置。
                 color: new that.$echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                   offset: 0,
                   color: '#25e1f4'
@@ -145,7 +164,7 @@ export default {
               }
             },
             data: that.list
-          // data: [15, 20, 25, 36, 70, 90, 37, 40, 50, 45, 45]
+            // data: [15, 20, 25, 36, 70, 90, 37, 40, 50, 45, 45]
           },
           {
             name: 'abnormal',

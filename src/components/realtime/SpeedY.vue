@@ -132,10 +132,10 @@ export default {
               },
               data: [
                 {
-                  yAxis: -1
+                  yAxis: 8
                 },
                 {
-                  yAxis: 1
+                  yAxis: 12
                 }
               ],
               lineStyle: {
@@ -155,25 +155,6 @@ export default {
             data: that.listb,
             showAllSymbol: false,
             showSymbol: false,
-            markLine: {
-              symbol: 'none',
-              silent: true,
-              label: {
-                show: false
-              },
-              data: [
-                {
-                  yAxis: -1
-                },
-                {
-                  yAxis: 1
-                }
-              ],
-              lineStyle: {
-                type: 'dotted',
-                color: 'rgba(220,220,220,1)'
-              }
-            },
             lineStyle: {
               normal: {
                 color: '#f64e01'

@@ -224,11 +224,15 @@ widthMore = 8%;
   .temperature{
     left:initialLeft++2*chartWidth+20%;
     top:initialTop+2%
-    height:20%
+    height:15%
+    width: 10%
+    /*background-color #C10015*/
   }
   .humidity{
-    left:initialLeft++3*chartWidth+19.9%;
+    left:initialLeft++2*chartWidth+30%;
     top:initialTop+2%
-    height:20%
+    height:15%
+    width: 10%
+    /*background-color #9C27B0*/
   }
 </style>

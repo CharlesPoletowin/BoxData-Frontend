@@ -1,5 +1,5 @@
 <template>
-<div :id="relatedColor" style="height:100%"></div>
+  <div :id="relatedColor" style="height:100%"></div>
 </template>
 
 <script>
@@ -43,13 +43,13 @@ export default {
         'xAxis': {
           'position': 'top',
           'type': 'category',
-          'data': ['速度X', '速度Y', 'X', 'Y', '振幅', '电流', '电压', '温度', '湿度'],
+          'data': ['速度X', 'X轴', '速度Y', 'Y轴', '振幅', '电流', '电压', '温度', '湿度'],
           'axisLabel': {
             color: '#FFFFFF',
             interval: 0,
             fontWeight: 'light',
-            fontSize: 2,
-            margin: 2
+            // fontSize: 0.5,
+            margin: 1
           },
           'splitArea': {
             'show': true
@@ -64,7 +64,7 @@ export default {
         'yAxis': {
           'nameLocation': 'end',
           'type': 'category',
-          'data': ['速度X', '速度Y', 'X', 'Y', '振幅', '电流', '电压', '温度', '湿度'],
+          'data': ['速度X', 'X轴', '速度Y', 'Y轴', '振幅', '电流', '电压', '温度', '湿度'],
           'axisLine': {
             'show': false
           },
@@ -75,7 +75,8 @@ export default {
             color: '#FFFFFF',
             interval: 0,
             fontWeight: 'light',
-            fontSize: 4,
+            fontSize: 1,
+            margin: 2,
             'rich': {
               'red': {
                 'color': '#f00'
@@ -91,10 +92,18 @@ export default {
           'max': 31,
           'calculable': false,
           'orient': 'horizontal',
-          'right': '-7%',
+          'right': '0%',
+          hoverLink: true,
+          textGap: 2,
           'top': '5',
+          text: ['大', '小'],
+          textStyle: {
+            fontSize: 10,
+            color: '#d1e6eb',
+            fontWeight: 'bold'
+          },
           itemWidth: 5,
-          itemHeight: 100,
+          itemHeight: 80,
           'color': ['#0032af', '#39b3c9', '#FFFFFF']
         },
         'series': [{
@@ -181,7 +190,7 @@ export default {
             [8, 5, 2],
             [8, 6, 5],
             [8, 7, 15],
-            [8, 8, 25],
+            [8, 8, 25]
             // [9, 0, 3],
             // [9, 1, 5],
             // [9, 2, 8],

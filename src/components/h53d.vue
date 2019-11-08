@@ -12,18 +12,21 @@ export default {
   name: 'h53d',
   data () {
     return {
-      unity: {}
+      unity: {},
+      initDone: false
     }
   },
   mounted () {
-    var unityInstance = UnityLoader.instantiate('unityContainer', 'statics/Build/1106.json', { onProgress: UnityProgress })
+    var unityInstance = UnityLoader.instantiate('unityContainer', 'statics/Build/1107_2.json', { onProgress: UnityProgress })
     this.unity = unityInstance
+    this.initDone = true
   },
   methods: {
     XAbnormal () { this.unity.SendMessage('MyUnity', 'XAbnormal', '') },
     YAbnormal () { this.unity.SendMessage('MyUnity', 'YAbnormal', '') },
     XVibration () { this.unity.SendMessage('MyUnity', 'XVibration', '') },
-    YVibration () { this.unity.SendMessage('MyUnity', 'YVibration', '') }
+    YVibration () { this.unity.SendMessage('MyUnity', 'YVibration', '') },
+    ShankeIt () { this.unity.SendMessage('MyUnity', 'ShankeIt', '') }
   },
   computed: {
     xlocation () {
@@ -34,41 +37,38 @@ export default {
     },
     xvibrate () {
       return this.$store.state.sendmessage.XVibration
-    },
-    yvibrate () {
-      return this.$store.state.sendmessage.YVibration
     }
   },
   watch: {
     xlocation: {
-      handler (newval, oldval) {
-        if (newval === 1) {
-          this.XAbnormal()
+      handler: function (newval, oldval) {
+        if (newval === 1 && this.initDone) {
+          if (this.initDone) {
+            this.XAbnormal()
+          }
           this.$store.commit('sendmessage/xrecover')
         }
       }
     },
     ylocation: {
-      handler (newval, oldval) {
-        if (newval === 1) {
-          this.YAbnormal()
+      handler: function (newval, oldval) {
+        if (newval === 1 && this.initDone) {
+          if (this.initDone) {
+            this.YAbnormal()
+          }
           this.$store.commit('sendmessage/yrecover')
         }
       }
     },
     xvibrate: {
-      handler (newval, oldval) {
+      handler: function (newval, oldval) {
         if (newval === 1) {
-          this.XVibration()
           this.$store.commit('sendmessage/xvibraterecover')
-        }
-      }
-    },
-    yvibrate: {
-      handler (newval, oldval) {
-        if (newval === 1) {
-          this.YVibration()
-          this.$store.commit('sendmessage/yvibraterecover')
+          if (this.initDone) {
+            this.ShankeIt()
+            this.XVibration()
+            this.YVibration()
+          }
         }
       }
     }

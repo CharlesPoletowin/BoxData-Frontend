@@ -105,7 +105,7 @@ export default {
             data: that.listb,
             type: 'scatter',
             symbolSize: function (data) {
-              return 100 / (data[2] + 10)
+              return 1000 / (data[2] + 1000)
             },
             label: {
               emphasis: {
@@ -134,6 +134,7 @@ export default {
             type: 'line',
             symbol: 'none',
             lineStyle: {
+              type: 'dotted',
               width: 1,
               opacity: 0.9,
               color: '#FFFFFF'
