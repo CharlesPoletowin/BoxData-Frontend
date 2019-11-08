@@ -76,7 +76,7 @@ export default {
             data: that.list,
             type: 'scatter',
             symbolSize: function (data) {
-              return 100 / (data[2] + 10)
+              return 1000 / (data[2] + 200)
             },
             label: {
               emphasis: {
@@ -105,7 +105,7 @@ export default {
             data: that.listb,
             type: 'scatter',
             symbolSize: function (data) {
-              return 1000 / (data[2] + 1000)
+              return 1000 / (data[2] + 200)
             },
             label: {
               emphasis: {

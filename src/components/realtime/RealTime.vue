@@ -22,9 +22,6 @@
       <div class="charts vibrationX">
         <vibrationX :list="vibrationX" :listb="AbvibrationX"></vibrationX>
       </div>
-<!--      <div class="charts vibrationY">-->
-<!--&lt;!&ndash;        <vibrationY :list="vibrationY" :listb="AbvibrationY"></vibrationY>&ndash;&gt;-->
-<!--      </div>-->
       <div class="charts current">
         <current :list="current"></current>
       </div>
@@ -72,15 +69,13 @@ export default {
       listY: [[1, 1], [2, 2], [3, 1], [4, 0], [5, 1], [6, 2]],
       Ablisty: [],
       trail: [[1, 1, 1], [2, 0, 2], [3, -1, 3], [2, -2, 4], [1, -3, 5]],
-      trailAbnormal: [[1, 0, 1], [2, 0, 1]],
+      trailAbnormal: [[1, 2, 1], [2, 3, 2]],
       speedx: [],
       Abspeedx: [[1, 10], [2, 8]],
       speedy: [[1, 1], [2, 2], [3, 1], [4, 0], [5, 1], [6, 2]],
       Abspeedy: [],
       vibrationX: [1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 2, -2, -2],
       AbvibrationX: [],
-      // vibrationY: [1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 2, -2, -2],
-      // AbvibrationY: [],
       current: [75],
       voltage: [80],
       temperature: [25],
@@ -108,8 +103,6 @@ export default {
       this.trailAbnormal = tem.location[1]
       this.vibrationX = tem.vibration[0]
       this.AbvibrationX = tem.vibration[1]
-      this.vibrationY = tem.vibration[0]
-      this.AbvibrationY = tem.vibration[1]
       this.speedx = tem.speedx[0]
       this.Abspeedx = tem.speedx[1]
       this.speedy = tem.speedy[0]
