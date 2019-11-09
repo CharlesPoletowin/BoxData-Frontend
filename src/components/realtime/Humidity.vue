@@ -25,7 +25,7 @@ export default {
       myChart.setOption({
         backgroundColor: '',
         title: {
-          text: '湿度',
+          text: '噪音',
           textStyle: {
             color: '#fffac0',
             baseline: 'bottom',
@@ -70,7 +70,7 @@ export default {
         }],
         xAxis: [{
           type: 'category',
-          data: ['温度'],
+          data: ['噪音'],
           axisTick: {
             // color:'#fff',
             show: false

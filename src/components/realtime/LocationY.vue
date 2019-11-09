@@ -91,9 +91,9 @@ export default {
           name: 'X',
           nameLocation: 'center',
           type: 'value',
-          // min: 0,
+          min: 0,
           show: true,
-          // max: 200,
+          max: 310,
           splitNumber: 4,
           splitLine: {
             show: false,
@@ -129,6 +129,22 @@ export default {
             lineStyle: {
               normal: {
                 color: '#ffdc4a' // 线条颜色
+              }
+            },
+            markLine: {
+              symbol: 'none',
+              silent: true,
+              data: [
+                {
+                  yAxis: 300
+                }
+              ],
+              lineStyle: {
+                type: 'dotted',
+                color: 'rgba(220,220,220,1)'
+              },
+              label: {
+                show: false
               }
             },
             label: {

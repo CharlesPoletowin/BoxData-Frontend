@@ -24,6 +24,12 @@ export default {
       let that = this
       myChart.setOption({
         backgroundColor: '',
+        grid: {
+          top: '10%',
+          left: 0,
+          right: 0,
+          bottom: 0,
+        },
         // title: {
         //   text: '位置轨迹图',
         //   textStyle: {
@@ -34,6 +40,8 @@ export default {
         //   left: 'center'
         // },
         xAxis: {
+          min: 0,
+          max: 310,
           splitLine: {
             show: false,
             lineStyle: {
@@ -52,6 +60,8 @@ export default {
           }
         },
         yAxis: {
+          min: 0,
+          max: 310,
           splitLine: {
             show: false,
             lineStyle: {
@@ -147,7 +157,7 @@ export default {
               opacity: 0.9,
               color: '#FFFFFF'
             },
-            data: [[1, 0], [0, 1], [-1, 0], [0, -1], [1, 0]]
+            data: [[0, 0], [0, 310], [310, 310], [310, 0], [0, 0]]
           }
         ]
       })

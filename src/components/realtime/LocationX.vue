@@ -72,9 +72,9 @@ export default {
           // name: 'X',
           nameLocation: 'center',
           type: 'value',
-          // min: 0,
+          min: 0,
           show: true,
-          // max: 200,
+          max: 310,
           splitNumber: 4,
           position: 'left',
           splitLine: {
