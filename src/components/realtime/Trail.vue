@@ -25,10 +25,10 @@ export default {
       myChart.setOption({
         backgroundColor: '',
         grid: {
-          top: '10%',
-          left: 0,
-          right: 0,
-          bottom: 0,
+          top: '20%',
+          left: '5%',
+          right: '5%',
+          bottom: '15%'
         },
         // title: {
         //   text: '位置轨迹图',
@@ -87,10 +87,10 @@ export default {
             type: 'scatter',
             symbolSize: function (data) {
               if (data[2] < 1) {
-                return 5
-              } else if (data[2] > 200) {
-                return 2.5
-              } else return 1000 / (data[2] + 200)
+                return 4
+              } else if (data[2] > 100) {
+                return 12
+              } else return (2 * data[2] + 98) / 25
             },
             label: {
               emphasis: {
@@ -100,17 +100,28 @@ export default {
               }
             },
             itemStyle: {
-              normal: {
-                shadowBlur: 10,
-                shadowColor: 'rgba(25, 100, 150, 0.5)',
-                shadowOffsetY: 5,
-                color: new that.$echarts.graphic.RadialGradient(0.4, 0.3, 1, [{
-                  offset: 0,
-                  color: 'rgb(129, 227, 238)'
-                }, {
-                  offset: 1,
-                  color: 'rgb(25, 183, 207)'
-                }])
+              // normal: {
+              //   // shadowBlur: 10,
+              //   // shadowColor: 'rgba(25, 100, 150, 0.5)',
+              //   // shadowOffsetY: 5,
+              //   color: new that.$echarts.graphic.RadialGradient(0.4, 0.3, 1, [{
+              //     offset: 0,
+              //     color: 'rgb(129, 227, 238)'
+              //   }, {
+              //     offset: 1,
+              //     color: 'rgb(25, 183, 207)'
+              //   }])
+              // },
+              color: function (params) {
+                if (params.value[2] < 1) {
+                  return 'rgba(25, 183, 207, 0.3)'
+                } else if (params.value[2] > 100) {
+                  return 'rgba(25, 183, 207, 1)'
+                } else {
+                  let temp = (params.value[2] + 49) / 150
+                  let a = 'rgba(25, 183, 207, ' + temp.toString() + ' )'
+                  return a
+                }
               }
             }
           },
@@ -120,10 +131,10 @@ export default {
             type: 'scatter',
             symbolSize: function (data) {
               if (data[2] < 1) {
-                return 5
-              } else if (data[2] > 200) {
-                return 2.5
-              } else return 1000 / (data[2] + 200)
+                return 4
+              } else if (data[2] > 100) {
+                return 12
+              } else return (2 * data[2] + 98) / 25
             },
             label: {
               emphasis: {
@@ -133,17 +144,28 @@ export default {
               }
             },
             itemStyle: {
-              normal: {
-                shadowBlur: 10,
-                shadowColor: 'rgba(120, 36, 50, 0.5)',
-                shadowOffsetY: 5,
-                color: new that.$echarts.graphic.RadialGradient(0.4, 0.3, 1, [{
-                  offset: 0,
-                  color: 'rgb(251, 118, 123)'
-                }, {
-                  offset: 1,
-                  color: 'rgb(204, 46, 72)'
-                }])
+              // normal: {
+              //   // shadowBlur: 10,
+              //   // shadowColor: 'rgba(120, 36, 50, 0.5)',
+              //   // shadowOffsetY: 5,
+              //   color: new that.$echarts.graphic.RadialGradient(0.4, 0.3, 1, [{
+              //     offset: 0,
+              //     color: 'rgb(251, 118, 123)'
+              //   }, {
+              //     offset: 1,
+              //     color: 'rgb(204, 46, 72)'
+              //   }])
+              // },
+              color: function (params) {
+                if (params.value[2] < 1) {
+                  return 'rgba(251, 118, 123, 0.3)'
+                } else if (params.value[2] > 100) {
+                  return 'rgba(251, 118, 123, 1)'
+                } else {
+                  let temp = (params.value[2] + 49) / 150
+                  let a = 'rgba(251, 118, 123, ' + temp.toString() + ' )'
+                  return a
+                }
               }
             }
           },
@@ -156,8 +178,8 @@ export default {
               width: 1,
               opacity: 0.9,
               color: '#FFFFFF'
-            },
-            data: [[0, 0], [0, 310], [310, 310], [310, 0], [0, 0]]
+            }
+            // data: [[0, 0], [0, 310], [310, 310], [310, 0], [0, 0]]
           }
         ]
       })

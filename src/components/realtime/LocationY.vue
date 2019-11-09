@@ -184,7 +184,7 @@ export default {
             name: 'ablocationy',
             type: 'line',
             showAllSymbol: false,
-            symbolSize: 4,
+            symbolSize: 1,
             lineStyle: {
               normal: {
                 color: '#f64e01' // 线条颜色
