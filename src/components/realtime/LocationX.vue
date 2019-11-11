@@ -192,7 +192,7 @@ export default {
           }
         ]
       })
-      this.myEcharts = myChart
+      // this.myEcharts = myChart
     }
   },
   watch: {
