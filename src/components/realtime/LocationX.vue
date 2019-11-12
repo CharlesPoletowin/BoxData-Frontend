@@ -192,19 +192,32 @@ export default {
           }
         ]
       })
-      // this.myEcharts = myChart
+      this.myEcharts = myChart
+    },
+    refreshData () {
+      let that = this
+      this.myEcharts.setOption({
+        series: [
+          {
+            data: that.list
+          },
+          {
+            data: that.listb
+          }
+        ]
+      })
     }
   },
   watch: {
-    // list: {
-    //   handler: function (val, oldVal) {
-    //     this.drawline()
-    //   },
-    //   deep: true
-    // },
+    list: {
+      handler: function (val, oldVal) {
+        this.refreshData()
+      },
+      deep: true
+    },
     listb: {
       handler: function (val, oldVal) {
-        this.drawline()
+        this.refreshData()
         if (val.length) {
           this.$store.commit('sendmessage/xlocate')
         }

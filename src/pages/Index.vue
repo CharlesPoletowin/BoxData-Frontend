@@ -3,11 +3,14 @@
     <div class='glSimulator'>
       <h53d></h53d>
     </div>
-    <div>
-      <realtime />
-    </div>
-    <div>
-      <statistics></statistics>
+    <div style="position:absolute; width: 100VW; height: 100VH; ">
+      <div >
+        <realtime />
+      </div>
+      <div>
+        <statistics></statistics>
+      </div>
+
     </div>
 
   </q-page>

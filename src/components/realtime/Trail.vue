@@ -95,8 +95,11 @@ export default {
             label: {
               emphasis: {
                 show: true,
-                formatter: 'normal',
-                position: 'top'
+                formatter: '正常',
+                position: 'top',
+                distance: 3,
+                fontWeight: 'bold',
+                color: 'rgba(25, 183, 207, 1)'
               }
             },
             itemStyle: {
@@ -126,7 +129,7 @@ export default {
             }
           },
           {
-            name: 'abnormal',
+            name: '正常',
             data: that.listb,
             type: 'scatter',
             symbolSize: function (data) {
@@ -139,8 +142,11 @@ export default {
             label: {
               emphasis: {
                 show: true,
-                formatter: 'abnormal',
-                position: 'top'
+                formatter: '异常',
+                position: 'top',
+                distance: 3,
+                fontWeight: 'bold',
+                color: 'rgba(251, 118, 123, 1)'
               }
             },
             itemStyle: {

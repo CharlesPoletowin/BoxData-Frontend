@@ -56,13 +56,13 @@ export default {
 .RelatedColor{
   left:initialLeft+2*chartWidth;
   top: initialTop+4*chartHeight +2%;
-  height: 2*chartHeight;
+  height: 25%;
   width: 2*chartWidth;
 }
   .Abnormal{
     left:initialLeft+4*chartWidth;
     top: initialTop+4*chartHeight+ 10%;
-    height: 2*chartHeight;
+    height: 20%;
     width: 1.5*chartWidth;
   }
   .River{

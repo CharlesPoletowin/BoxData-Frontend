@@ -5,7 +5,7 @@ import routes from './routes'
 import VueSocketio from 'vue-socket.io'
 Vue.use(new VueSocketio({
   debug: true,
-  connection: 'http://210.14.69.108:5101'
+  connection: 'http://10.200.43.149:5101'
 }))
 Vue.use(VueRouter)
 

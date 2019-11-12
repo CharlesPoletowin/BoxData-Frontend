@@ -1,40 +1,40 @@
 <template>
-    <div>
-      <div class="charts locationX">
-        <locationX :list="listX" :listb="AblistX"/>
-        <div class="words">时间</div>
-        <div class="words2">X</div>
-      </div>
-      <div class="charts locationY">
-        <locationY :list="listY" :listb="Ablisty"/>
-        <div class="words3">时间</div>
-        <div class="words4">Y</div>
-      </div>
-      <div class="charts trail">
-        <trail :list="trail" :listb="trailAbnormal"></trail>
-      </div>
-      <div class="charts speed">
-        <speedX :list="speedx" :listb="Abspeedx"></speedX>
-      </div>
-      <div class="charts speedy">
-        <speedY :list="speedy" :listb="Abspeedy"></speedY>
-      </div>
-      <div class="charts vibrationX">
-        <vibrationX :list="vibrationX" :listb="AbvibrationX"></vibrationX>
-      </div>
-      <div class="charts current">
-        <current :list="current"></current>
-      </div>
-      <div class="charts voltage">
-        <voltage :list="voltage"></voltage>
-      </div>
-      <div class="charts temperature">
-        <temperature :list="temperature" :listb="abtemperature"></temperature>
-      </div>
-      <div class="charts humidity">
-        <humidity :list="humidity" :listb="abhumidity"></humidity>
-      </div>
+  <div>
+    <div class="charts locationX">
+      <locationX :list="listX" :listb="AblistX"/>
+      <div class="words">时间</div>
+      <div class="words2">X</div>
     </div>
+    <div class="charts locationY">
+      <locationY :list="listY" :listb="Ablisty"/>
+      <div class="words3">时间</div>
+      <div class="words4">Y</div>
+    </div>
+    <div class="charts trail">
+      <trail :list="trail" :listb="trailAbnormal"></trail>
+    </div>
+    <div class="charts speed">
+      <speedX :list="speedx" :listb="Abspeedx"></speedX>
+    </div>
+    <div class="charts speedy">
+      <speedY :list="speedy" :listb="Abspeedy"></speedY>
+    </div>
+    <div class="charts vibrationX">
+      <vibrationX :list="vibrationX" :listb="AbvibrationX"></vibrationX>
+    </div>
+    <div class="charts current">
+      <current :list="current"></current>
+    </div>
+    <div class="charts voltage">
+      <voltage :list="voltage"></voltage>
+    </div>
+    <div class="charts temperature">
+      <temperature :list="temperature" :listb="abtemperature"></temperature>
+    </div>
+    <div class="charts humidity">
+      <humidity :list="humidity" :listb="abhumidity"></humidity>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -81,7 +81,8 @@ export default {
       temperature: [25],
       abtemperature: [],
       humidity: [45],
-      abhumidity: []
+      abhumidity: [],
+      Position: []
     }
   },
   props: {
@@ -107,106 +108,117 @@ export default {
       this.Abspeedx = tem.speedx[1]
       this.speedy = tem.speedy[0]
       this.Abspeedy = tem.speedy[1]
+      this.Position = [(this.trail[0][0] / 320).toFixed(3), (this.trail[0][1] / 320).toFixed(3)]
+    }
+  },
+  watch: {
+    Position: {
+      handler: function (val, oldVal) {
+        this.$store.dispatch('sendmessage/setPosition', val)
+        // this.$store.commit('sendmessage/setLocationXY', val)
+        // console.log('watch Position in RealTime')
+      },
+      deep: true
     }
   }
 }
 </script>
 
 <style lang="stylus" scoped>
-chartWidth = 13%;
-chartHeight = 15%;
-interval = 5%;
-initialLeft = 1%;
-initialTop = 7%;
-widthMore = 8%;
+  chartWidth = 13%;
+  chartHeight = 15%;
+  interval = 5%;
+  initialLeft = 1%;
+  initialTop = 7%;
+  widthMore = 8%;
 
-.charts {
-  padding: 0;
-  height: chartHeight;
-  width: chartWidth;
-  position: absolute;
-}
+  .charts {
+    padding: 0;
+    height: chartHeight;
+    width: chartWidth;
+    position: absolute;
+  }
 
-.locationX {
-  left: initialLeft;
-  top: initialTop;
-  width: 13.1%;
-}
-.locationY {
-  left: initialLeft;
-  top: initialTop+chartHeight;
-  width: 13.1%;
-}
-.words{
+  .locationX {
+    left: initialLeft;
+    top: initialTop;
+    width: 13.1%;
+  }
+  .locationY {
+    left: initialLeft;
+    top: initialTop+chartHeight;
+    width: 13.1%;
+  }
+  .words{
     position:absolute;
     bottom:0;
     right:0;
     color:#d1e6eb;
     font-size : 9px;
     font-weight: bold;
-}
-.words2{
-  position:absolute;
-  top:0;
-  left:0;
-  color:#53fdfe;
-  font-size : 9px;
-  font-weight: bold;
-}
-.words3{
-  position:absolute;
-  bottom:0;
-  right:0;
-  color:#d1e6eb;
-  font-size : 9px;
-  font-weight: bold;
-}
-.words4{
-  position:absolute;
-  top:0;
-  left:0;
-  color:#ffdc4a;
-  font-size : 9px;
-  font-weight: bold;
-}
-.trail{
-  left:initialLeft+chartWidth;
-  top:initialTop;
-  height: 2*chartHeight;
-  /*width: 15%;*/
-  z-index: 12;
-}
-.speed{
-  left:initialLeft;
-  top:initialTop+2*chartHeight+2.5%;
-  width: 11%;
-  height: 2*chartHeight;
-}
+  }
+  .words2{
+    position:absolute;
+    top:0;
+    left:0;
+    color:#53fdfe;
+    font-size : 9px;
+    font-weight: bold;
+  }
+  .words3{
+    position:absolute;
+    bottom:0;
+    right:0;
+    color:#d1e6eb;
+    font-size : 9px;
+    font-weight: bold;
+  }
+  .words4{
+    position:absolute;
+    top:0;
+    left:0;
+    color:#ffdc4a;
+    font-size : 9px;
+    font-weight: bold;
+  }
+  .trail{
+    left:initialLeft+chartWidth;
+    top:initialTop;
+    height: 2*chartHeight;
+    /*width: 15%;*/
+    z-index: 12;
+  }
+  .speed{
+    left:initialLeft;
+    top:initialTop+2*chartHeight+2.5%;
+    width: 11%;
+    height: 2*chartHeight;
+  }
   .speedy{
     left:initialLeft+ 11%;
     top:initialTop+2*chartHeight+2.5%;
     height: 2*chartHeight;
     width: 11%;
   }
-.vibrationX{
+  .vibrationX{
     left:initialLeft;
     top: initialTop+4*chartHeight+2.5%
     height: 2*chartHeight;
     width: 2*chartWidth;
-}
-.current{
-  left:initialLeft+2*chartWidth+2%;
-  top:initialTop+2.5%;
-  width:10%;
-  height:20%;
-  z-index: 11
-}
-.voltage{
-  left:initialLeft++2*chartWidth+12%;
-  top:initialTop+2.5%
-  width:10%;
-  height:20%
-}
+  }
+  .current{
+    left:initialLeft+2*chartWidth+2%;
+    top:initialTop+2.5%;
+    width:10%;
+    height:20%;
+    z-index: 11
+  }
+  .voltage{
+    left:initialLeft++2*chartWidth+12%;
+    top:initialTop+2.5%
+    width:10%;
+    height:20%
+  }
   .temperature{
     left:initialLeft++2*chartWidth+25%;
     top:initialTop+4%

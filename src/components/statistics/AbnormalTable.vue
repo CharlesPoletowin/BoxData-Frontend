@@ -58,8 +58,9 @@ export default {
 <style scoped>
   .Abnormal {
     /*margin:auto;*/
-    margin-top: 0%;
+    margin-top: 2%;
     margin-left: 5%;
+    margin-bottom: 0;
     width: 80%;
     /*height: 90%;*/
     border: 1px solid white;

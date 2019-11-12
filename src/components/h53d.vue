@@ -17,7 +17,7 @@ export default {
     }
   },
   mounted () {
-    var unityInstance = UnityLoader.instantiate('unityContainer', 'statics/Build/1109_12.json', { onProgress: UnityProgress })
+    var unityInstance = UnityLoader.instantiate('unityContainer', 'statics/Build/1112.json', { onProgress: UnityProgress })
     this.unity = unityInstance
     this.initDone = true
   },
@@ -26,7 +26,11 @@ export default {
     YAbnormal () { this.unity.SendMessage('MyUnity', 'YAbnormal', '') },
     XVibration () { this.unity.SendMessage('MyUnity', 'XVibration', '') },
     YVibration () { this.unity.SendMessage('MyUnity', 'YVibration', '') },
-    ShakeIt () { this.unity.SendMessage('MyUnity', 'ShakeIt', '') }
+    ShakeIt () { this.unity.SendMessage('MyUnity', 'ShakeIt', '') },
+    SetPosition (a, b) {
+      var temp = a + '|' + b
+      this.unity.SendMessage('MyUnity', 'SetPos', temp)
+    }
   },
   computed: {
     xlocation () {
@@ -43,6 +47,9 @@ export default {
     },
     shakeIt () {
       return this.$store.state.sendmessage.ShakeIt
+    },
+    setPos () {
+      return this.$store.state.sendmessage.LocationXY
     }
   },
   watch: {
@@ -88,7 +95,6 @@ export default {
     },
     shakeIt: {
       handler: function (newVal, oldVal) {
-        console.log('shakeit' + newVal)
         if (newVal === 1) {
           if (this.initDone) {
             this.ShakeIt()
@@ -96,6 +102,15 @@ export default {
           this.$store.commit('sendmessage/shakeRecover')
         }
       }
+    },
+    setPos: {
+      handler: function (newVal, oldVal) {
+        if (this.initDone) {
+          this.SetPosition(newVal.x, newVal.y)
+          // console.log('watch in setPos ', newVal)
+        }
+      },
+      deep: true
     }
   }
 }

@@ -42,3 +42,10 @@ export function shakeIt (state) {
 export function shakeRecover (state) {
   state.ShakeIt = 0
 }
+
+export function setLocationXY (state, newData) {
+  state.LocationXY.x = newData[0]
+  state.LocationXY.y = newData[1]
+  state.LocationXY.z++
+  // console.log('state.LocationXY ', state.LocationXY.x)
+}
