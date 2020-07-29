@@ -182,17 +182,17 @@ export default {
           },
           {
             name: 'ablocationy',
-            type: 'line',
+            type: 'scatter',
             showAllSymbol: false,
-            symbolSize: 1,
-            lineStyle: {
-              normal: {
-                color: '#f64e01' // 线条颜色
-              }
-            },
+            symbolSize: 8,
+            // lineStyle: {
+            //   normal: {
+            //     color: '#f64e01' // 线条颜色
+            //   }
+            // },
             itemStyle: {
               normal: {
-                color: 'rgba(255,255,255,1)'
+                color: '#f64e01'
               }
             },
             tooltip: {

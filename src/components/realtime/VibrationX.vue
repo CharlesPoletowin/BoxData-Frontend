@@ -189,8 +189,9 @@ export default {
           },
           {
             name: 'AbVibrationX',
-            type: 'line',
+            type: 'scatter',
             data: that.listb,
+            symbolSize: 8,
             itemStyle: {
               color: '#f64e01'
             }
